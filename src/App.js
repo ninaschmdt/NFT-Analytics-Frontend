@@ -6,10 +6,14 @@ import Header from './Components/Header/Header';
 
 function App() {
   return (
-    <div>
-      <Header></Header>
-      <CollectionsTable></CollectionsTable>
-      <Wallets></Wallets>
+    <div className='App'>
+      <div className='header'>
+      <Header/>
+      </div>
+      <div className='content'>
+      <CollectionsTable/>
+      <Wallets/>
+      </div>
     </div>
   );
 }

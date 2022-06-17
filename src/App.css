@@ -1,38 +1,49 @@
+/* APP OVERALL */
+
 .App {
+  border: 1px solid lightgrey;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content {
+  border: 2px solid pink;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-evenly;
 }
 
-.App-link {
-  color: #61dafb;
+/* COLLECTIONS */
+
+.collectionsTable {
+  width: 66%;
+  border: 2px solid grey;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+table {
+  border: 1px solid blue;
+}
+
+table th,
+table td {
+  border: 1px solid red;
+}
+
+/* WALLETS */
+
+.allWallets {
+  width: 34%;
+  border: 2px solid black;
+}
+
+.singleWalletWrapper {
+  border: 3px solid green;
+
 }

@@ -1,10 +1,12 @@
 import React from 'react'
 import MetaMask from './MetaMask'
+import Logo from './Logo'
 
 const Header = () => {
   return (
-    <div><h1>KEIKO alerts</h1>
-        <MetaMask></MetaMask>
+    <div className='header'>
+      <Logo />
+      <MetaMask />
     </div>
   )
 }
