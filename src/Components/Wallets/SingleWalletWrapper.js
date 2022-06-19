@@ -9,7 +9,6 @@ const SingleWalletWrapper = () => {
     <div className='singleWalletWrapper'>
       <SingleWallet />
       <SingleTransaction />
-      <TopLabel />
       <AddWallet />
     </div>
   )

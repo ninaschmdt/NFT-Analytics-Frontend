@@ -5,8 +5,12 @@ import Logo from './Logo'
 const Header = () => {
   return (
     <div className='header'>
-      <Logo />
-      <MetaMask />
+      <div>
+        <Logo />
+      </div>
+      <div>
+        <MetaMask />
+      </div>
     </div>
   )
 }

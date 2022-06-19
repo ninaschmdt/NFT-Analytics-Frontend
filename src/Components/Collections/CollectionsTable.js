@@ -2,45 +2,21 @@ import React from 'react'
 import SingleCollection from './SingleCollection'
 import Sales from './Sales'
 import SalesFloor from './SalesFloor'
+import TopLabel from '../Wallets/TopLabel'
 
 const CollectionsTable = () => {
   return (
     <div className='collectionsTable'>
-      <table>
-        <thead>
-          <tr>
-            <th colspan="3">
-              <h1>Top 10 Collections</h1>
-            </th>
-          </tr>
-        </thead>
-        <thead>
-          <tr>
-            <td>
-              <h3>Collection</h3>
-            </td>
-            <td>
-              <h3>Sales floor</h3>
-            </td>
-            <td>
-              <h3>Sales</h3>
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <SingleCollection />
-            </td>
-            <td>
-              <SalesFloor />
-            </td>
-            <td>
-              <Sales />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className='tableHeader'>
+        <h1>Top 10 Collections</h1>
+        <TopLabel />
+      </div>
+      <div className='cell cell1'>Collection</div>
+      <div className='cell cell2'>Sales Floor</div>
+      <div className='cell cell3'>Sales</div>
+      <div className='cell cell4'><SingleCollection /></div>
+      <div className='cell cell5'><SalesFloor /></div>
+      <div className='cell cell6'><Sales /></div>
     </div>
   )
 }

@@ -14,26 +14,89 @@
 /* HEADER */
 
 .header {
+  border: 2px solid pink;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 /* COLLECTIONS */
 
 .collectionsTable {
+  display: grid;
+  grid-template-columns: 50% 25% 25%;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas: 
+    "topTen topTen topTen"
+    "main1 main2 main3"
+    "main4 main5 main6";
+  border: solid;
   width: 66%;
   border: 2px solid grey;
 }
 
-table {
+.tableHeader {
   border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  grid-area: topTen;
 }
 
-table th,
-table td {
-  border: 1px solid red;
+.cell1 {
+  padding: 10px;
+  border: 1px solid fuchsia;
+  grid-area: main1;
+}
+
+.cell2 {
+  padding: 10px;
+  border: 1px solid fuchsia;
+  grid-area: main2;
+}
+
+.cell3 {
+  padding: 10px;
+  border: 1px solid fuchsia;
+  grid-area: main3;
+}
+
+.cell4 {
+  padding: 10px;
+  border: 1px solid fuchsia;
+  grid-area: main4;
+}
+
+.cell5 {
+  padding: 10px;
+  border: 1px solid fuchsia;
+  grid-area: main5;
+}
+
+.cell6 {
+  padding: 10px;
+  border: 1px solid fuchsia;
+  grid-area: main6;
+}
+
+.singleCollection {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.imageCollection {
+  border: 1px solid purple;
+}
+
+.singleCollectionNameSupply {
+  border: 1px solid fuchsia;
+  display: flex;
+  flex-direction: column;
+  width: 100%
 }
 
 /* WALLETS */
@@ -45,5 +108,60 @@ table td {
 
 .singleWalletWrapper {
   border: 3px solid green;
+}
 
+.singleWallet {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.singleWalletImageNameAddress {
+  border: 1px solid aqua;
+  display: flex;
+  flex-direction: row;
+}
+
+.imageWallet {
+  border: 1px solid red;
+}
+
+.singleTransaction {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+}
+
+.singleCollectionNameStatusLinkDateTop {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.collectionNameTop {
+  border: 1px solid purple;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.collectionNameStatus {
+  border: 1px solid aqua;
+  display: flex;
+  flex-direction: column;
+}
+
+.collectionStatus {
+  border: 1px solid fuchsia;
+  display: flex;
+  flex-direction: row;
+}
+
+.collectionLinkDate {
+  border: 1px solid olivedrab;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

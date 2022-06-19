@@ -1,8 +1,11 @@
 import React from 'react'
+import SalesFloorChange from './SalesFloorChange'
 
 const SalesFloor = () => {
   return (
-    <div>SalesFloor</div>
+    <div>SalesFloor
+    <SalesFloorChange />
+    </div>
   )
 }
 
