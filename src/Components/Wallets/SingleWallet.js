@@ -4,8 +4,8 @@ const SingleWallet = () => {
   return (
     <div className='singleWallet'>
       <div className='singleWalletImageNameAddress'>
-        <div className='imageWallet'>
-          <h4>ImageWallet</h4>
+        <div className='walletImage'>
+          <h4>WalletImage</h4>
         </div>
         <div className='singleWalletNameAddress'>
           <div className='walletName'>

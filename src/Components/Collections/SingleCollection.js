@@ -1,17 +1,35 @@
 import React from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import CollectionName from './CollectionName'
+import CollectionImage from './CollectionImage'
+import CollectionSupply from './CollectionSupply'
 
-const SingleCollection = () => {
+
+function SingleCollection() {
+  const [dataCollectionName, setDataCollectionName] = useState([]);
+
+  useEffect(() => {
+    axios('https://jsonplaceholder.typicode.com/users')
+    .then(res => setDataCollectionName(res.data))
+    .catch(err => console.log(err))
+  }, []);
+
+const arrayName = [
+  { heading: 'Name', value: 'name' }
+]
+
   return (
     <div className='singleCollection'>
-      <div className='imageCollection'>
-        <h4>ImageCollection</h4>
+      <div className='collectionImage'>
+        <CollectionImage/>
       </div>
       <div className='singleCollectionNameSupply'>
         <div className='collectionName'>
-          CollectionName
+          <CollectionName data={dataCollectionName}/>
         </div>
-        <div className='Supply'>
-          Circulating Supply: 6,648
+        <div className='collectionSupply'>
+          <CollectionSupply />
         </div>
       </div>
     </div>

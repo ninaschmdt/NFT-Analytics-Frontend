@@ -1,11 +1,12 @@
 import React from 'react'
 import TopLabel from './TopLabel'
+import CollectionImage from '../Collections/CollectionImage'
 
 const SingleTransaction = () => {
   return (
     <div className='singleTransaction'>
-      <div className='imageCollection'>
-        <h4>ImageCollection</h4>
+      <div className='collectionImage'>
+        <CollectionImage/>
       </div>
       <div className='singleCollectionNameStatusLinkDateTop'>
           <div className='collectionNameStatus'>
