@@ -1,38 +1,146 @@
+/* APP OVERALL */
+
 .App {
+  border: 1px solid lightgrey;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.content {
+  border: 2px solid pink;
+  display: flex;
+  flex-direction: row;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* HEADER */
+
+.header {
+  border: 2px solid pink;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* COLLECTIONS */
+
+.collectionsTable {
   display: flex;
   flex-direction: column;
+  border: solid;
+  width: 66%;
+  border: 2px solid grey;
+}
+
+.tableHeader {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.tableSubHeader {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.singleCollectionContainer{
+  border: solid 3px green;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.singleCollection {
+  width: 60%;
+  border: solid 3px red;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.imageCollection {
+  border: 1px solid purple;
+}
+
+.singleCollectionSales{
+  border: solid 2px blue;
+  width: 20%;
+}
+
+.collectionImage {
+  width: 56px;
+  height: 56px;
+  background-color: palegreen;
+}
+
+/* WALLETS */
+
+.allWallets {
+  width: 34%;
+  border: 2px solid black;
+}
+
+.singleWalletWrapper {
+  border: 3px solid green;
+}
+
+.singleWallet {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.singleWalletImageNameAddress {
+  border: 1px solid aqua;
+  display: flex;
+  flex-direction: row;
+}
+
+.imageWallet {
+  border: 1px solid red;
+}
+
+.singleTransaction {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+}
+
+.singleCollectionNameStatusLinkDateTop {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.collectionNameTop {
+  border: 1px solid purple;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.collectionNameStatus {
+  border: 1px solid aqua;
+  display: flex;
+  flex-direction: column;
+}
+
+.collectionStatus {
+  border: 1px solid fuchsia;
+  display: flex;
+  flex-direction: row;
+}
+
+.collectionLinkDate {
+  border: 1px solid olivedrab;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

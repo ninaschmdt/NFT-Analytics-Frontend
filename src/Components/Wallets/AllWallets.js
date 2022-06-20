@@ -7,13 +7,9 @@ import AddWallet from './AddWallet';
 
 const AllWallets = () => {
   return (
-    <div>
-      <h1>AllWallets</h1>
-      <SingleWalletWrapper></SingleWalletWrapper>
-      <SingleWallet></SingleWallet>
-      <SingleTransaction></SingleTransaction>
-      <TopLabel></TopLabel>
-      <AddWallet></AddWallet>
+    <div className='allWallets'>
+      <h1>Selective Wallets Overview</h1>
+      <SingleWalletWrapper/>
     </div>
   )
 }

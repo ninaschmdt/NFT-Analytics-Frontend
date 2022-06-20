@@ -1,8 +1,11 @@
 import React from 'react'
+import SalesChange from './SalesChange'
 
-const Sales = () => {
+const Sales = ( {data} ) => {
   return (
-    <div>Sales</div>
+    <div>{data.address.geo.lng}
+      <SalesChange />
+    </div>
   )
 }
 

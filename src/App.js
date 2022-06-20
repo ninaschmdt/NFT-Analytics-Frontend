@@ -6,10 +6,12 @@ import Header from './Components/Header/Header';
 
 function App() {
   return (
-    <div>
-      <Header></Header>
-      <CollectionsTable></CollectionsTable>
-      <Wallets></Wallets>
+    <div className='App'>
+      <Header/>
+      <div className='content'>
+      <CollectionsTable/>
+      <Wallets/>
+      </div>
     </div>
   );
 }
