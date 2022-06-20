@@ -36,9 +36,9 @@ const CollectionsTable = () => {
       {dataCollectionName.length && dataCollectionName.map(nameItem => {
         return (
           <div key={nameItem.id}>
-            <div className='cell cell4'><SingleCollection data={nameItem} /></div>
-            <div className='cell cell5'><SalesFloor /></div>
-            <div className='cell cell6'><Sales /></div>
+            <div className='singleCollection'><SingleCollection data={nameItem} /></div>
+            {/* <div className='cell cell5'><SalesFloor /></div>
+            <div className='cell cell6'><Sales /></div> */}
           </div>
         )
       })

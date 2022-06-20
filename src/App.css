@@ -30,7 +30,7 @@
   grid-template-areas: 
     "topTen topTen topTen"
     "main1 main2 main3"
-    "main4 main5 main6";
+    "singleCollection . . ";
   border: solid;
   width: 66%;
   border: 2px solid grey;
@@ -63,13 +63,13 @@
   grid-area: main3;
 }
 
-.cell4 {
+.singleCollection {
   padding: 10px;
   border: 1px solid fuchsia;
-  grid-area: main4;
+  grid-area: singleCollection;
 }
 
-.cell5 {
+/* .cell5 {
   padding: 10px;
   border: 1px solid fuchsia;
   grid-area: main5;
@@ -79,25 +79,25 @@
   padding: 10px;
   border: 1px solid fuchsia;
   grid-area: main6;
-}
-
+} */
+/* 
 .singleCollection {
   border: 1px solid blue;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+} */
 
-.imageCollection {
+/* .imageCollection {
   border: 1px solid purple;
-}
-
+} */
+/* 
 .singleCollectionNameSupply {
   border: 1px solid fuchsia;
   display: flex;
   flex-direction: column;
   width: 100%
-}
+} */
 
 /* WALLETS */
 
