@@ -72,6 +72,12 @@
   width: 20%;
 }
 
+.collectionImage {
+  width: 56px;
+  height: 56px;
+  background-color: palegreen;
+}
+
 /* WALLETS */
 
 .allWallets {

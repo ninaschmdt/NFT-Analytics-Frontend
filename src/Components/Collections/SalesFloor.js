@@ -1,9 +1,9 @@
 import React from 'react'
 import SalesFloorChange from './SalesFloorChange'
 
-const SalesFloor = () => {
+const SalesFloor = ( {data} ) => {
   return (
-    <div>SalesFloor
+    <div>{data.address.geo.lat}
     <SalesFloorChange />
     </div>
   )

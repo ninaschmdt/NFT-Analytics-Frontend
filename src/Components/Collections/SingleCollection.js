@@ -14,7 +14,7 @@ function SingleCollection({ data }) {
         <CollectionName name={data.name}/>
       </div>
       <div className='collectionSupply'>
-        <CollectionSupply />
+        <CollectionSupply supply={data.address.zipcode}/>
       </div>
     </div>
   </div>

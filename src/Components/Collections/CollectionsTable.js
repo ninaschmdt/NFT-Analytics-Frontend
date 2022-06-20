@@ -8,12 +8,13 @@ import { useEffect, useState } from 'react'
 
 const CollectionsTable = () => {
 
-  const [dataCollectionName, setDataCollectionName] = useState([]);
-  const [dataSupply, setDataSupply] = useState([]);
+  const [dataCollection, setDataCollection] = useState([]);
+  const [dataImage, setDataImage] = useState([]);
+
 
   useEffect(() => {
     axios('https://jsonplaceholder.typicode.com/users') 
-      .then(res => setDataCollectionName(res.data.slice(0, 10)))
+      .then(res => setDataCollection(res.data.slice(0, 10)))
       .catch(err => console.log(err))
   }, []);
 
@@ -27,13 +28,17 @@ const CollectionsTable = () => {
         <div className='singleCollection'>Collection</div>
         <div className='singleCollectionSales'>Sales Floor</div>
         <div className='singleCollectionSales'>Sales</div>
-      </div>
-      {dataCollectionName.length && dataCollectionName.map(nameItem => {
+      </div> 
+      {dataCollection.length && dataCollection.map(objectItem => {
         return (
-          <div className="singleCollectionContainer" key={nameItem.id}>
-            <SingleCollection data={nameItem} />
-            <div className='singleCollectionSales'>SALES FLOOR</div>
-            <div className='singleCollectionSales'>SALES</div>
+          <div className="singleCollectionContainer" key={objectItem.id}>
+            <SingleCollection data={objectItem} />
+            <div className='singleCollectionSales'>
+              <SalesFloor data={objectItem} />
+            </div>
+            <div className='singleCollectionSales'>
+              <Sales data={objectItem} />
+            </div>
           </div>
         )
       })
