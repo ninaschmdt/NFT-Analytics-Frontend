@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CollectionSupply = () => {
+const CollectionSupply = ({supply}) => {
   return (
     <div>CollectionSupply</div>
   )
