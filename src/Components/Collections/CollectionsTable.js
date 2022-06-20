@@ -9,20 +9,13 @@ import { useEffect, useState } from 'react'
 const CollectionsTable = () => {
 
   const [dataCollectionName, setDataCollectionName] = useState([]);
+  const [dataSupply, setDataSupply] = useState([]);
 
   useEffect(() => {
-    axios('https://jsonplaceholder.typicode.com/users') /* offset / limit 10 here.*/
+    axios('https://jsonplaceholder.typicode.com/users') 
       .then(res => setDataCollectionName(res.data.slice(0, 10)))
       .catch(err => console.log(err))
   }, []);
-
-  let slicedCollectionData = [];
-
-  // useEffect(() => {
-  //   if (dataCollectionName.length) {
-  //     slicedCollectionData = dataCollectionName.slice(0, 9)
-  //   }
-  // }, [dataCollectionName, slicedCollectionData])
 
   return (
     <div className='collectionsTable'>
@@ -30,16 +23,17 @@ const CollectionsTable = () => {
         <h1>Top 10 Collections</h1>
         <TopLabel />
       </div>
-      <div className='cell cell1'>Collection</div>
-      <div className='cell cell2'>Sales Floor</div>
-      <div className='cell cell3'>Sales</div>
+      <div className='tableSubHeader'>
+        <div className='singleCollection'>Collection</div>
+        <div className='singleCollectionSales'>Sales Floor</div>
+        <div className='singleCollectionSales'>Sales</div>
+      </div>
       {dataCollectionName.length && dataCollectionName.map(nameItem => {
         return (
-          <div className="single-collection-container"key={nameItem.id}>
-            <div className="single-collection-child">Single Collection</div>
-           {/* <SingleCollection data={nameItem} /> */}
-            <div className=' single-collection-child cell cell5'>SALES FLOOR</div>
-            <div className=' single-collection-child cell cell6'>SALES</div>
+          <div className="singleCollectionContainer" key={nameItem.id}>
+            <SingleCollection data={nameItem} />
+            <div className='singleCollectionSales'>SALES FLOOR</div>
+            <div className='singleCollectionSales'>SALES</div>
           </div>
         )
       })

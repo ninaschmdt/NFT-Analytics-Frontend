@@ -24,13 +24,8 @@
 /* COLLECTIONS */
 
 .collectionsTable {
-  display: grid;
-  grid-template-columns: 50% 25% 25%;
-  grid-auto-rows: minmax(100px, auto);
-  grid-template-areas: 
-    "topTen topTen topTen"
-    "main1 main2 main3"
-    "singleCollection . . ";
+  display: flex;
+  flex-direction: column;
   border: solid;
   width: 66%;
   border: 2px solid grey;
@@ -42,49 +37,29 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  grid-area: topTen;
 }
 
-.cell1 {
-  padding: 10px;
-  border: 1px solid fuchsia;
-  grid-area: main1;
-}
-
-.cell2 {
-  padding: 10px;
-  border: 1px solid fuchsia;
-  grid-area: main2;
-}
-
-.cell3 {
-  padding: 10px;
-  border: 1px solid fuchsia;
-  grid-area: main3;
-}
-
-.singleCollection {
-  padding: 10px;
-  border: 1px solid fuchsia;
-  grid-area: singleCollection;
-}
-
-.cell5 {
-  padding: 10px;
-  border: 1px solid fuchsia;
-  grid-area: main5;
-}
-
-.cell6 {
-  padding: 10px;
-  border: 1px solid fuchsia;
-  grid-area: main6;
-}
-
-.singleCollection {
-  border: 5px solid blue;
+.tableSubHeader {
+  border: 1px solid blue;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.singleCollectionContainer{
+  border: solid 3px green;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.singleCollection {
+  width: 60%;
+  border: solid 3px red;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -92,23 +67,9 @@
   border: 1px solid purple;
 }
 
-.singleCollectionNameSupply {
-  border: 1px solid fuchsia;
-  display: flex;
-  flex-direction: column;
-  width: 100%
-}
-
-.single-collection-container{
-  border: solid 3px green;
-  /* background-color: lightgreen; */
-  display: flex;
-  justify-content: space-between;
-}
-
-.single-collection-child{
+.singleCollectionSales{
   border: solid 2px blue;
-  width: 30%;
+  width: 20%;
 }
 
 /* WALLETS */
