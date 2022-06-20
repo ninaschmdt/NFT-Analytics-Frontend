@@ -69,7 +69,7 @@
   grid-area: singleCollection;
 }
 
-/* .cell5 {
+.cell5 {
   padding: 10px;
   border: 1px solid fuchsia;
   grid-area: main5;
@@ -79,25 +79,37 @@
   padding: 10px;
   border: 1px solid fuchsia;
   grid-area: main6;
-} */
-/* 
+}
+
 .singleCollection {
-  border: 1px solid blue;
+  border: 5px solid blue;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-} */
+}
 
-/* .imageCollection {
+.imageCollection {
   border: 1px solid purple;
-} */
-/* 
+}
+
 .singleCollectionNameSupply {
   border: 1px solid fuchsia;
   display: flex;
   flex-direction: column;
   width: 100%
-} */
+}
+
+.single-collection-container{
+  border: solid 3px green;
+  /* background-color: lightgreen; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-collection-child{
+  border: solid 2px blue;
+  width: 30%;
+}
 
 /* WALLETS */
 

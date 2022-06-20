@@ -35,10 +35,11 @@ const CollectionsTable = () => {
       <div className='cell cell3'>Sales</div>
       {dataCollectionName.length && dataCollectionName.map(nameItem => {
         return (
-          <div key={nameItem.id}>
-            <div className='singleCollection'><SingleCollection data={nameItem} /></div>
-            {/* <div className='cell cell5'><SalesFloor /></div>
-            <div className='cell cell6'><Sales /></div> */}
+          <div className="single-collection-container"key={nameItem.id}>
+            <div className="single-collection-child">Single Collection</div>
+           {/* <SingleCollection data={nameItem} /> */}
+            <div className=' single-collection-child cell cell5'>SALES FLOOR</div>
+            <div className=' single-collection-child cell cell6'>SALES</div>
           </div>
         )
       })
