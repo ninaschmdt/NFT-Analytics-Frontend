@@ -7,7 +7,6 @@ function SingleCollection({ data }) {
 
   return <div className='singleCollection'>
     <div className='collectionImage'>
-      <CollectionImage />
     </div>
     <div className='singleCollectionNameSupply'>
       <div className='collectionName'>
