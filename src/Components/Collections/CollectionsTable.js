@@ -9,8 +9,6 @@ import { useEffect, useState } from 'react'
 const CollectionsTable = () => {
 
   const [dataCollection, setDataCollection] = useState([]);
-  const [dataImage, setDataImage] = useState([]);
-
 
   useEffect(() => {
     axios('https://jsonplaceholder.typicode.com/users') 
@@ -29,15 +27,15 @@ const CollectionsTable = () => {
         <div className='singleCollectionSales'>Sales Floor</div>
         <div className='singleCollectionSales'>Sales</div>
       </div> 
-      {dataCollection.length && dataCollection.map(objectItem => {
+      {dataCollection.length && dataCollection.map(collectionItem => {
         return (
-          <div className="singleCollectionContainer" key={objectItem.id}>
-            <SingleCollection data={objectItem} />
+          <div className="singleCollectionContainer" key={collectionItem.id}>
+            <SingleCollection data={collectionItem} />
             <div className='singleCollectionSales'>
-              <SalesFloor data={objectItem} />
+              <SalesFloor data={collectionItem} />
             </div>
             <div className='singleCollectionSales'>
-              <Sales data={objectItem} />
+              <Sales data={collectionItem} />
             </div>
           </div>
         )

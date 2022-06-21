@@ -1,18 +1,17 @@
 import React from 'react'
 
-const SingleWallet = () => {
+const SingleWallet = ({ address }) => {
   return (
     <div className='singleWallet'>
       <div className='singleWalletImageNameAddress'>
         <div className='walletImage'>
-          <h4>WalletImage</h4>
         </div>
         <div className='singleWalletNameAddress'>
           <div className='walletName'>
-            WalletName
+            WalletName????
           </div>
           <div className='walletAddress'>
-            WalletAddress
+            {address}
           </div>
         </div>
       </div>
