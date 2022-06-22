@@ -6,29 +6,26 @@
 /* COLLECTIONS */
 
 .collectionsTable {
-    display: flex;
-    flex-direction: column;
+@include component-column();
+@include wrappers;
     width: 63%;
-    border-radius: 0.5em;
-    border: solid 1px $lightgrey;
-    height: fit-content;
-    margin-top: 1em;
 }
 
 .tableHeader {
-    @include collections();
+    @include component-row();
     text-indent: 1em;
 }
 
 .tableSubHeader {
-    @include collections();
+    @include component-row();
     border-top: solid 1px $lightgrey;
     background-color: $lightbluegrey;
     color: $darkgrey;
+    min-height: 3.5em;
 }
 
 .singleCollectionContainer {
-    @include collections();
+    @include component-row();
     border-top: solid 1px $lightgrey;
 }
 
@@ -38,7 +35,7 @@
 
 .singleCollectionImageNameSupply {
     width: 60%;
-    @include collections();
+    @include component-row();
     justify-content: flex-start;
 }
 
@@ -47,9 +44,5 @@
 }
 
 .collectionImage {
-    min-width: 3.5em;
-    height: 3.5em;
-    background-color: $lightgrey;
-    border-radius: 0.5em;
-    margin: 1em;
+    @include image();
 }

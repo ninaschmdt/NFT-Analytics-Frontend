@@ -6,7 +6,6 @@
 
 .App {
   color: $black;
-  border: 10px solid $red;
   max-width: 60em;
   margin: auto;
   font-family: $app-font;
@@ -20,12 +19,16 @@
 /* HEADER */
 
 .header {
-  @include collections();
+  @include component-row();
 }
 
 .button {
   @include button();
   background-color: $blue;
   border: 0px solid $blue;
-  color: $white;
+}
+
+.button:hover {
+  background-color: $bluehover;
+  
 }

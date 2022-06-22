@@ -5,78 +5,72 @@
 
 /* WALLETS */
 
+.button-secondary {
+    @include button();
+    border: 1px solid $lightgrey;
+    color: $black;
+    background-color: $white;
+}
+
+.button-secondary:hover {
+    background-color: $hover;
+}
+
 .allWallets {
+    @include wrappers;
     width: 34%;
-    border: 6px solid black;
-  }
-  
-  .singleWalletWrapper {
-    border: 5px solid red;
-  }
-  
-  .singleWallet {
-    border: 1px solid blue;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .singleWalletImageNameAddress {
-    border: 1px solid aqua;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .walletImage {
-    border: 1px solid red;
-    width: 56px;
-    height: 56px;
-    background-color: teal;
-    border-radius: 50px;
+    border: 1px solid $lightgrey;
+    background-color: $lightbluegrey;
     
-  }
-  
-  .multipleTransactions {
-    border: 4px solid blue;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .singleTransaction {
-    border: 1px solid aqua;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .singleCollectionNameStatusLinkDateTop {
-    border: 1px solid blue;
-    display: flex;
-    flex-direction: column;
+}
+
+.singleWallet {
+    @include component-row();
+    border-top: solid 1px $lightgrey;
+    padding-right: 1em;
+}
+
+.singleWalletImageNameAddress {
+    @include component-row()
+}
+
+.walletImage {
+    @include image();
+    border-radius: 50px;
+}
+
+.multipleTransactions {
+    @include component-column();
+}
+
+.multipleTransactions:hover {
+    @include hover();
+}
+
+.singleTransaction {
+    @include component-row();
+    border-top: solid 1px $lightgrey;
+    padding-right: 1em;
+}
+
+.singleCollectionNameStatusLinkDateTop {
+    @include component-column();
     width: 100%;
-  }
-  
-  .collectionNameTop {
-    border: 1px solid purple;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .collectionNameStatus {
-    border: 1px solid aqua;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .collectionStatus {
-    border: 1px solid fuchsia;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .collectionLinkDate {
-    border: 1px solid olivedrab;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+}
+
+.collectionNameTop {
+    @include component-row()
+}
+
+.collectionNameStatus {
+    @include component-column()
+}
+
+.collectionStatus {
+    @include component-row();
+    justify-content: flex-start;
+}
+
+.collectionLinkDate {
+    @include component-row()
+}

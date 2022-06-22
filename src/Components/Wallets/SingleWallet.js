@@ -8,7 +8,6 @@ const SingleWallet = ({ address }) => {
         </div>
         <div className='singleWalletNameAddress'>
           <div className='walletName'>
-            WalletName????
           </div>
           <div className='walletAddress'>
             {address}
@@ -16,7 +15,7 @@ const SingleWallet = ({ address }) => {
         </div>
       </div>
       <div>
-        <button className='button'>Remove</button>
+        <button className='button-secondary'>Remove</button>
       </div>
     </div >
   )

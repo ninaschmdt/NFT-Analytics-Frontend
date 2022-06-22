@@ -17,7 +17,7 @@ const MultipleTransactions = ({ transactionName, status, money, link, date }) =>
           <div className='collectionNameStatus'>
             <div className='collectionNameTop'>
               <div>
-                CollectionName<br></br>{transactionName}
+                {transactionName}
               </div>
               <div className='top'>
                 <TopLabel />
@@ -25,20 +25,18 @@ const MultipleTransactions = ({ transactionName, status, money, link, date }) =>
             </div>
             <div className='collectionStatus'>
               <div>
-                Status<br></br>{status} |
+                {status} |
               </div>
               <div>
-                Money<br></br>
                 {money}
               </div>
             </div>
           </div>
           <div className='collectionLinkDate'>
             <div>
-              Etherscan<br></br>{link}
+              {link}
             </div>
             <div>
-              Date<br></br>
               {date}
             </div>
           </div>

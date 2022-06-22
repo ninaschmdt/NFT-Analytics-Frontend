@@ -1,22 +1,32 @@
 @import './variables.scss';
 
-@mixin container($width: 60em, $height: 6em, $direction: row, $justify-content: space-between, $color: $white) {
+@mixin container($width: 60em) {
     max-width: $width;
     min-height: 6em;
-    border: solid 1px $lightgrey;
     display: flex;
-    flex-direction: $direction;
+    flex-direction: row;
     align-items: left;
-    justify-content: $justify-content;
-    background-color: $color;
+    justify-content: space-between;
 }
 
-@mixin collections($display: flex, $direction: row, $justify-content: space-between, $align-items: center) {
-    min-height: 3.5em;
+@mixin wrappers() {
+    border-radius: 0.5em;
+    border: solid 1px $lightgrey;
+    height: fit-content;
+    margin-top: 1em;
+}
+
+@mixin component-row($min-height: null, $display: flex, $direction: row, $justify-content: space-between, $align-items: center) {
+    min-height: $min-height;
     display: $display;
-    direction: $direction;
+    flex-direction: $direction;
     justify-content: $justify-content;
     align-items: $align-items;
+}
+
+@mixin component-column() {
+    display: flex;
+    flex-direction: column;
 }
 
 @mixin hover() {
@@ -24,17 +34,28 @@
     cursor: pointer;
 }
 
-@mixin button($width: fit-content, $background-color: blue, $hover-color: darkblue, $border: 0px, $color: white) {
+@mixin button($width: fit-content, $background-color: blue, $hover-color: null, $border: null, $color: white) {
     border-radius: 5em;
     min-height: 3em;
     padding-left: 2em;
     padding-right: 2em;
+    margin: 1em 0em 1em 1em;
     font-family: $app-font;
-    font-weight: 600;
+    font-weight: bold;
     color: $color;
+    border: $border;
+    width: $width;
 
     &:hover {
-        background-color: $hover;
+        background-color: $hover-color;
         cursor: pointer;
     }
+ }
+
+ @mixin image($border-radius: 0.5em) {
+    min-width: 3.5em;
+    height: 3.5em;
+    background-color: $lightgrey;
+    margin: 1em;
+    border-radius: $border-radius;
  }
