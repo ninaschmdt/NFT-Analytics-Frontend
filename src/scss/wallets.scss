@@ -1,0 +1,82 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Libre+Barcode+39+Extended+Text&display=swap');
+@import './mixins';
+
+
+/* WALLETS */
+
+.allWallets {
+    width: 34%;
+    border: 6px solid black;
+  }
+  
+  .singleWalletWrapper {
+    border: 5px solid red;
+  }
+  
+  .singleWallet {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .singleWalletImageNameAddress {
+    border: 1px solid aqua;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .walletImage {
+    border: 1px solid red;
+    width: 56px;
+    height: 56px;
+    background-color: teal;
+    border-radius: 50px;
+    
+  }
+  
+  .multipleTransactions {
+    border: 4px solid blue;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .singleTransaction {
+    border: 1px solid aqua;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .singleCollectionNameStatusLinkDateTop {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .collectionNameTop {
+    border: 1px solid purple;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .collectionNameStatus {
+    border: 1px solid aqua;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .collectionStatus {
+    border: 1px solid fuchsia;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .collectionLinkDate {
+    border: 1px solid olivedrab;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }

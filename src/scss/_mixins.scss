@@ -1,0 +1,40 @@
+@import './variables.scss';
+
+@mixin container($width: 60em, $height: 6em, $direction: row, $justify-content: space-between, $color: $white) {
+    max-width: $width;
+    min-height: 6em;
+    border: solid 1px $lightgrey;
+    display: flex;
+    flex-direction: $direction;
+    align-items: left;
+    justify-content: $justify-content;
+    background-color: $color;
+}
+
+@mixin collections($display: flex, $direction: row, $justify-content: space-between, $align-items: center) {
+    min-height: 3.5em;
+    display: $display;
+    direction: $direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+@mixin hover() {
+    background-color: $hover;
+    cursor: pointer;
+}
+
+@mixin button($width: fit-content, $background-color: blue, $hover-color: darkblue, $border: 0px, $color: white) {
+    border-radius: 5em;
+    min-height: 3em;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-family: $app-font;
+    font-weight: 600;
+    color: $color;
+
+    &:hover {
+        background-color: $hover;
+        cursor: pointer;
+    }
+ }

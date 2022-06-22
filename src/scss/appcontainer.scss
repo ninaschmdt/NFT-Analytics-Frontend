@@ -1,0 +1,31 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Libre+Barcode+39+Extended+Text&display=swap');
+@import './mixins';
+
+/* APP OVERALL */
+
+.App {
+  color: $black;
+  border: 10px solid $red;
+  max-width: 60em;
+  margin: auto;
+  font-family: $app-font;
+}
+
+.content {
+  @include container();
+}
+
+
+/* HEADER */
+
+.header {
+  @include collections();
+}
+
+.button {
+  @include button();
+  background-color: $blue;
+  border: 0px solid $blue;
+  color: $white;
+}

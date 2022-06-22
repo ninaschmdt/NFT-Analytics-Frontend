@@ -1,0 +1,55 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Libre+Barcode+39+Extended+Text&display=swap');
+@import './mixins';
+
+
+/* COLLECTIONS */
+
+.collectionsTable {
+    display: flex;
+    flex-direction: column;
+    width: 63%;
+    border-radius: 0.5em;
+    border: solid 1px $lightgrey;
+    height: fit-content;
+    margin-top: 1em;
+}
+
+.tableHeader {
+    @include collections();
+    text-indent: 1em;
+}
+
+.tableSubHeader {
+    @include collections();
+    border-top: solid 1px $lightgrey;
+    background-color: $lightbluegrey;
+    color: $darkgrey;
+}
+
+.singleCollectionContainer {
+    @include collections();
+    border-top: solid 1px $lightgrey;
+}
+
+.singleCollectionContainer:hover {
+    @include hover();
+}
+
+.singleCollectionImageNameSupply {
+    width: 60%;
+    @include collections();
+    justify-content: flex-start;
+}
+
+.singleCollectionSales {
+    width: 20%;
+}
+
+.collectionImage {
+    min-width: 3.5em;
+    height: 3.5em;
+    background-color: $lightgrey;
+    border-radius: 0.5em;
+    margin: 1em;
+}

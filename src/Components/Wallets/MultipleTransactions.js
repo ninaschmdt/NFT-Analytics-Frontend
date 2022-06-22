@@ -10,7 +10,6 @@ import SalesFloor from '../Collections/SalesFloor'
 const MultipleTransactions = ({ transactionName, status, money, link, date }) => {
   return (
     <div className='multipleTransactions'>
-      <h4>Transactions must be 5</h4>
       <div className='singleTransaction'>
         <div className='collectionImage'>
         </div>

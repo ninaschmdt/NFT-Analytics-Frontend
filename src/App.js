@@ -1,5 +1,7 @@
 import logo from './logo.svg';
-import './App.css';
+import './scss/appcontainer.scss';
+import './scss/collections.scss'
+import './scss/wallets.scss';
 import CollectionsTable from './Components/Collections/CollectionsTable';
 import Wallets from './Components/Wallets/AllWallets';
 import Header from './Components/Header/Header';

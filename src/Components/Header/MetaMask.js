@@ -33,10 +33,10 @@ const MetaMask = () => {
   }
 
   return (
-    <div className="walletButton">
-      <header className="walletConnect">
-        <button onClick={requestAccount}>Connect Wallet</button>
-        <h3>Wallet Address: {walletAddress}</h3>
+    <div className="walletConnect">
+      <header>
+        <h3>My Wallet Address: <br></br> Some address{walletAddress}</h3>
+        <button className='button' onClick={requestAccount}>Connect Wallet</button>
       </header>
     </div>
   );
