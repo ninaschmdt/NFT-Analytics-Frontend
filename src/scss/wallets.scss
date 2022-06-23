@@ -6,14 +6,11 @@
 /* WALLETS */
 
 .button-secondary {
-    @include button();
+    @include button($hover-color: $hover);
     border: 1px solid $lightgrey;
     color: $black;
     background-color: $white;
-}
-
-.button-secondary:hover {
-    background-color: $hover;
+    width: 95%;
 }
 
 .allWallets {
@@ -21,17 +18,29 @@
     width: 34%;
     border: 1px solid $lightgrey;
     background-color: $lightbluegrey;
-    
+    h1{
+        padding: 0 0.5em 0 0.5em;
+    }
+}
+
+.addWallet {
+    border-top: solid 1px $lightgrey;
+    display: block;
+
+    h3{
+        margin: 16px 16px 0 16px;
+    }
 }
 
 .singleWallet {
-    @include component-row();
+    @include component-column();
     border-top: solid 1px $lightgrey;
     padding-right: 1em;
 }
 
 .singleWalletImageNameAddress {
-    @include component-row()
+    @include component-row();
+    justify-content: flex-start
 }
 
 .walletImage {

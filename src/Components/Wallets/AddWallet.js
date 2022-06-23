@@ -2,11 +2,11 @@ import React from 'react'
 
 const AddWallet = () => {
   return (
-    <div>
-      <h3>AddWallet</h3>
+    <div className='addWallet'>
+      <h3>Add Wallet</h3>
       <form>
-        <input type="text" id="fname" name="fname" /><br />
-        <input type="submit" className='button' value="Add wallet" />
+        <input type="text" id="fname" name="fname" placeholder="Paste wallet ID here..." /><br />
+        <input type="submit" className='button' value="Nasty Follow Someones Wallet" />
       </form>
     </div>
   )

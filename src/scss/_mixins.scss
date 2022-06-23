@@ -7,6 +7,7 @@
     flex-direction: row;
     align-items: left;
     justify-content: space-between;
+    padding: 2%;
 }
 
 @mixin wrappers() {
@@ -34,17 +35,19 @@
     cursor: pointer;
 }
 
-@mixin button($width: fit-content, $background-color: blue, $hover-color: null, $border: null, $color: white) {
+@mixin button($width: fit-content, $background-color: null, $hover-color: $bluehover, $border: null, $color: white) {
     border-radius: 5em;
     min-height: 3em;
     padding-left: 2em;
     padding-right: 2em;
-    margin: 1em 0em 1em 1em;
+    margin: 1em;
     font-family: $app-font;
     font-weight: bold;
+    font-size: 16px;
     color: $color;
     border: $border;
     width: $width;
+    background-color: $blue;
 
     &:hover {
         background-color: $hover-color;

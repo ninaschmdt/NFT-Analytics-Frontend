@@ -36,7 +36,7 @@ const MetaMask = () => {
     <div className="walletConnect">
       <header>
         <h3>My Wallet Address: <br></br> Some address{walletAddress}</h3>
-        <button className='button' onClick={requestAccount}>Connect Wallet</button>
+        <button className='button' onClick={requestAccount}>Connect Your Wallet</button>
       </header>
     </div>
   );
