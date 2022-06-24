@@ -1,18 +1,24 @@
-import React from 'react'
-import MetaMask from './MetaMask'
-import Logo from './Logo'
+import React from "react";
+import Logo from "./Logo";
+import ConnectWalletButton from "./ConnectWalletButton";
 
-const Header = () => {
+const Header = ({ onPressLogout, onPressConnect, loading, address }) => {
+  console.log(onPressConnect);
   return (
-    <div className='header'>
+    <div className="header">
       <div>
         <Logo />
       </div>
       <div>
-        <MetaMask />
+        <ConnectWalletButton
+          onPressConnect={onPressConnect}
+          onPressLogout={onPressLogout}
+          loading={loading}
+          address={address}
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
