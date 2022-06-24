@@ -15,6 +15,7 @@ export const trendingCollections = ` {
                 volume
               }
               symbol
+              circulatingSupply
             }
             tokens {
               edges {
