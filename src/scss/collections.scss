@@ -51,3 +51,15 @@
 .collectionImage {
     @include img();
 }
+
+.topLabel {
+    margin-top: 16px;
+}
+
+.sales {
+    font-weight: bold;
+}
+
+.salesChange {
+    font-weight: normal;
+}

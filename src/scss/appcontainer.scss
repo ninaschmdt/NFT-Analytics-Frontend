@@ -13,6 +13,7 @@
 
 .content {
   @include container();
+  margin: 0px;
 }
 
 /* HEADER */
@@ -20,6 +21,16 @@
 .header {
   @include component-row();
   padding: 2%;
+}
+
+.logo {
+  cursor: pointer;
+  padding: 16px;
+}
+
+button {
+  @include button();
+  border: 0px solid $blue;
 }
 
 .button {

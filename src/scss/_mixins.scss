@@ -1,6 +1,6 @@
 @import './variables.scss';
 
-@mixin container($width: 60em) {
+@mixin container($width: 60em, $margin: null) {
     max-width: $width;
     min-height: 6em;
     display: flex;
@@ -8,6 +8,7 @@
     align-items: left;
     justify-content: space-between;
     padding: 2%;
+    margin: $margin;
 }
 
 @mixin wrappers() {

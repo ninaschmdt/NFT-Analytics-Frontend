@@ -6,6 +6,7 @@ const Header = ({ onPressLogout, onPressConnect, loading, address }) => {
   console.log(onPressConnect);
   return (
     <div className="header">
+
       <div>
         <Logo />
       </div>

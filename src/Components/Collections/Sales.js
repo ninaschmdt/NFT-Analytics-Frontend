@@ -3,7 +3,7 @@ import SalesChange from './SalesChange'
 
 const Sales = ( {data} ) => {
   return (
-    <div>{data}
+    <div className='sales'>{data}
       <SalesChange />
     </div>
   )

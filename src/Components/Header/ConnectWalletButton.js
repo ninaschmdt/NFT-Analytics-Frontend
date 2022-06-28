@@ -13,7 +13,7 @@ const ConnectWalletButton = ({
           Disconnect
         </button>
       ) : loading ? (
-        <button
+        <button 
           className={`${["connect-wallet"]} ${["connect-button-loading"]}`}
           disabled
         >

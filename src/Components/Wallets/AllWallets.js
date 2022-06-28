@@ -21,7 +21,7 @@ const AllWallets = () => {
 
   return (
     <div className='allWallets'>
-      <h1>Selective Wallets Overview</h1>
+      <h1>Tracked Wallets</h1>
       {dataWallet.length && dataWallet.map(walletItem => {
         return (
           <div key={walletItem.id}>

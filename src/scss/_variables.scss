@@ -15,10 +15,12 @@ $app-font: 'Cairo', sans-serif;
 
 h1 {
     font-size: 28px;
+    line-height: 36px;
 }
 
 h3 {
     margin: 0px;
+    line-height: 24px;
 }
 
 input {
@@ -27,5 +29,5 @@ input {
     margin: 0px -32px 0px 16px;
     min-height: 2em;
     font-family: $app-font;
-    width: 100%;
+    width: 88%;
 }
