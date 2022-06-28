@@ -1,6 +1,7 @@
 @import './variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Libre+Barcode+39+Extended+Text&display=swap');
 @import './mixins';
+@import './breakpoints';
 
 
 /* WALLETS */
@@ -14,12 +15,61 @@
 }
 
 .allWallets {
-    @include wrappers;
-    width: 34%;
-    border: 1px solid $lightgrey;
-    background-color: $lightbluegrey;
-    h1{
-        padding: 0 0.5em 0 0.5em;
+    @include xl {
+        @include wrappers;
+        width: 34%;
+        border: 1px solid $lightgrey;
+        background-color: $lightbluegrey;
+
+        h1 {
+            padding: 0 0.5em 0 0.5em;
+        }
+    }
+
+    @include lg {
+        @include wrappers;
+        width: 34%;
+        border: 1px solid $lightgrey;
+        background-color: $lightbluegrey;
+
+        h1 {
+            padding: 0 0.5em 0 0.5em;
+        }
+    }
+
+    @include md {
+        @include wrappers;
+        min-width: auto;
+        border: 1px solid $lightgrey;
+        background-color: $lightbluegrey;
+
+        h1 {
+            padding: 0 0.5em 0 0.5em;
+        }
+        min-width: auto;
+    }
+
+    @include sm {
+        @include wrappers;
+        min-width: auto;
+        border: 1px solid $lightgrey;
+        background-color: $lightbluegrey;
+
+        h1 {
+            padding: 0 0.5em 0 0.5em;
+        }
+        min-width: auto;
+    }
+
+    @include xs {
+        @include wrappers;
+        min-width: auto;
+        border: 1px solid $lightgrey;
+        background-color: $lightbluegrey;
+
+        h1 {
+            padding: 0 0.5em 0 0.5em;
+        }
     }
 }
 
@@ -27,11 +77,11 @@
     border-top: solid 1px $lightgrey;
     display: block;
 
-    h3{
+    h3 {
         margin: 16px 16px 0 16px;
     }
 
-    .button{
+    .button {
         width: 90%;
     }
 }

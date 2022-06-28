@@ -1,14 +1,39 @@
 @import './variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Libre+Barcode+39+Extended+Text&display=swap');
 @import './mixins';
+@import './breakpoints';
 
-
-/* COLLECTIONS */
 
 .collectionsTable {
-    @include component-column();
-    @include wrappers;
-    width: 63%;
+    @include xl {
+        @include component-column();
+        @include wrappers;
+        width: 63%;
+    }
+
+    @include lg {
+        @include component-column();
+        @include wrappers;
+        width: 63%;
+    }
+
+    @include md {
+        @include component-column();
+        @include wrappers;
+        min-width: auto;
+    }
+
+    @include sm {
+        @include component-column();
+        @include wrappers;
+        min-width: auto;
+    }
+
+    @include xs {
+        @include component-column();
+        @include wrappers;
+        min-width: auto;
+    }
 }
 
 .tableHeader {
@@ -34,8 +59,10 @@
 }
 
 .singleCollectionContainer {
+    
     @include component-row();
     border-top: solid 1px $lightgrey;
+
 }
 
 .singleCollectionContainer:hover {

@@ -1,6 +1,7 @@
 @import './variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Libre+Barcode+39+Extended+Text&display=swap');
 @import './mixins';
+@import './breakpoints';
 
 /* APP OVERALL */
 
@@ -12,8 +13,26 @@
 }
 
 .content {
-  @include container();
-  margin: 0px;
+
+  @include xl {
+    @include container()
+  }
+
+  @include lg {
+    @include container()
+  }
+
+  @include md {
+    flex-direction: row;
+  }
+
+  @include sm {
+    flex-direction: row;
+  }
+
+  @include xs {
+    flex-direction: row;
+  }
 }
 
 /* HEADER */
