@@ -3,7 +3,7 @@ import SalesFloorChange from './SalesFloorChange'
 
 const SalesFloor = ( {data} ) => {
   return (
-    <div>{data.address.geo.lat}
+    <div>{data}
     <SalesFloorChange />
     </div>
   )
