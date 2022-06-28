@@ -7,13 +7,14 @@ function SingleCollection({ data }) {
 
   return <div className='singleCollectionImageNameSupply'>
     <div className='collectionImage'>
+      <CollectionImage node={data.node} />
     </div>
     <div className='singleCollectionNameSupply'>
       <div className='collectionName'>
-        <CollectionName name={data.data.contracts}/>
+        <CollectionName name={data.node.name} />
       </div>
       <div className='collectionSupply'>
-        <CollectionSupply supply={data.address.zipcode}/>
+        <CollectionSupply supply={data.node.circulatingSupply} />
       </div>
     </div>
   </div>

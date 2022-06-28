@@ -6,22 +6,27 @@ import TopLabel from '../Wallets/TopLabel'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import fetchData, { trendingCollections } from '../Utils/CollectionFetch'
- 
+
 
 const CollectionsTable = () => {
-
+  const [loading, setLoading] = useState(false);
   const [dataCollection, setDataCollection] = useState([]);
 
   useEffect(() => {
     (async () => {
+      setLoading(true)
       const { queryResult, error } = await fetchData(trendingCollections);
       if (error) {
+        setLoading(false)
         return console.error(error)
       }
-      console.log('IT IS HAPPENING HERE QUERYRESULT', queryResult)
+      setDataCollection(queryResult.data.data.contracts.edges)
+      setLoading(false)
     })()
   }, [])
 
+
+  
   //const [dataCollection, setDataCollection] = useState([]);
 
 
@@ -32,7 +37,7 @@ const CollectionsTable = () => {
       .catch(err => console.log(err))
   }, []);
 */
-console.log('THIS IS THE DATA COLLECTION', dataCollection)
+  console.log('THIS IS THE DATA COLLECTION', dataCollection)
   return (
     <div className='collectionsTable'>
       <div className='tableHeader'>
@@ -43,17 +48,16 @@ console.log('THIS IS THE DATA COLLECTION', dataCollection)
         <div className='singleCollection'>Collection</div>
         <div className='singleCollectionSales'>Sales Floor</div>
         <div className='singleCollectionSales'>Sales</div>
-      </div> 
-      {dataCollection.length && dataCollection.map(collectionItem => {
-        console.log('HERE IS THE DATA', collectionItem)
+      </div>
+      {loading ? "Loading" : dataCollection.map(collectionItem => {
         return (
           <div className="singleCollectionContainer" key={collectionItem.id}>
             <SingleCollection data={collectionItem} />
             <div className='singleCollectionSales'>
-              <SalesFloor data={collectionItem} />
+              <SalesFloor data={collectionItem.node.stats.floor} />
             </div>
             <div className='singleCollectionSales'>
-              <Sales data={collectionItem} />
+              <Sales data={collectionItem.node.stats.totalSales} />
             </div>
           </div>
         )

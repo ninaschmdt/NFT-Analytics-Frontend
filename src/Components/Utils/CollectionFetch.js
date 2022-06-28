@@ -9,23 +9,15 @@ export const trendingCollections = ` {
               name
               stats {
                 totalSales
-                average
-                ceiling
                 floor
-                volume
               }
-              symbol
               circulatingSupply
             }
             tokens {
               edges {
                 node {
-                  tokenId
                   images {
-                    height
-                    mimeType
                     url
-                    width
                   }
                 }
               }
