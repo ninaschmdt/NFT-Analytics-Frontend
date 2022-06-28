@@ -44,7 +44,7 @@
 }
 
 .walletImage {
-    @include image();
+    @include img();
     border-radius: 50px;
 }
 

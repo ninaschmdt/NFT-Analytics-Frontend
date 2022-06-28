@@ -55,7 +55,7 @@
     }
  }
 
- @mixin image($border-radius: 0.5em) {
+ @mixin img($border-radius: 0.5em) {
     min-width: 3.5em;
     height: 3.5em;
     background-color: $lightgrey;

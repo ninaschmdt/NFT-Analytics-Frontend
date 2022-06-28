@@ -6,7 +6,7 @@ import CollectionSupply from './CollectionSupply'
 function SingleCollection({ data }) {
 
   return <div className='singleCollectionImageNameSupply'>
-    <div className='collectionImage'>
+    <div>
       <CollectionImage node={data.node} />
     </div>
     <div className='singleCollectionNameSupply'>
