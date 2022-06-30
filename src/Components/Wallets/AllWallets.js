@@ -1,5 +1,5 @@
 import React from "react";
-import SingleWalletWrapper from "./SingleWalletWrapper";
+import MultipleWalletWrapper from "./MultipleWalletWrapper";
 import SingleWallet from "./SingleWallet";
 import SingleTransaction from "./MultipleTransactions";
 import TopLabel from "./TopLabel";
@@ -25,7 +25,6 @@ function AllWallets() {
   const [dataWallet, setDataWallet] = useState([]);
   const [loading, setLoading] = useState(false);
 
-
   useEffect(() => {
     fetch(
       `https://api.etherscan.io/api?module=account&action=tokennfttx&address=0x391d69A9113dB3Eb1B8AAb6DB01bf602a9bfE8e1&apikey=${process.env.REACT_APP_ETH_API_KEY}`
@@ -35,7 +34,7 @@ function AllWallets() {
         return response.json();
       })
       .then((data) => {
-        setDataWallet(data.result);
+        setDataWallet(data.result.slice(0, 3));
       })
       .catch((error) => {
         console.log("CAN NOT GET DATA");
@@ -60,10 +59,10 @@ function AllWallets() {
   return (
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
-      {loading ? "Loading" : dataWallet.map(walletItem => {
+      {loading ? "Loading" : dataWallet.slice(0, 5).map(walletItem => {
         return (
           <div className="allWallets" key={walletItem.id}>
-            <SingleWalletWrapper data={walletItem.result} />
+            <MultipleWalletWrapper dataWrapper={walletItem} />
           </div>
         )
       })
