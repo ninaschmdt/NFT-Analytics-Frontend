@@ -1,13 +1,13 @@
-import React from 'react';
-import SingleWalletWrapper from './SingleWalletWrapper';
-import SingleWallet from './SingleWallet';
-import SingleTransaction from './MultipleTransactions';
-import TopLabel from './TopLabel';
-import AddWallet from './AddWallet';
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import React from "react";
+import SingleWalletWrapper from "./SingleWalletWrapper";
+import SingleWallet from "./SingleWallet";
+import SingleTransaction from "./MultipleTransactions";
+import TopLabel from "./TopLabel";
+import AddWallet from "./AddWallet";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-const AllWallets = () => {
+/*const AllWallets = () => {
 
   const [dataWallet, setDataWallet] = useState([]);
 
@@ -18,31 +18,31 @@ const AllWallets = () => {
       .catch(err => console.log(err))
   }, []);
 
-  console.log('data wallet', dataWallet)
+  console.log('data wallet', dataWallet)*/
 
-  /* This is the code I wrote for fetching and Reagan approved
-
-  function App() {
+function AllWallets() {
   const [userInput, setUserInput] = useState("");
-  const [wallets, setWallets] = useState([]);
+  const [dataWallet, setDataWallet] = useState([]);
 
   useEffect(() => {
-    fetch(`https://api.etherscan.io/api?module=account&action=txlistinternal&address=0x3996881D5AFB107e4Abb0fe124a6420Bfa2E3F9d&startblock=0&endblock=2702578&page=1&offset=10&sort=asc&apikey=1PNDKADJZH14KW2FDEQ2FCQ5IQSF6NBKCS`)
+    fetch(
+      `https://api.etherscan.io/api?module=account&action=tokennfttx&address=0x391d69A9113dB3Eb1B8AAb6DB01bf602a9bfE8e1&apikey=${process.env.APIKEY}`
+    )
       .then((response) => {
-        console.log('DATA IS HERE')
+        console.log("ETHERSCAN DATA IS HERE");
         return response.json();
       })
       .then((data) => {
-        setWallets(data);
+        setDataWallet(data);
       })
-      .catch(error => {
-        console.log('CAN NOT GET DATA')
-      })
+      .catch((error) => {
+        console.log("CAN NOT GET DATA");
+      });
   }, []);
-  console.log('wallets', wallets)
+  console.log("wallets", dataWallet);
 
-// Thois coudl potetialy handle the selective wallet fetching,
-// or fetch all and use find method to get the one that we need 
+  // Thois coudl potetialy handle the selective wallet fetching,
+  // or fetch all and use find method to get the one that we need
 
   const search = () => {
     //console.log(userInput);
@@ -51,33 +51,24 @@ const AllWallets = () => {
         return response.json();
       })
       .then((data) => {
-        setWallets(data);
+        setDataWallet(data);
       });
   };
 
   return (
-    <div className="App">
-      <h1>ETHERSCAN Data</h1>
+    <div className="allWallets">
+      <h1>Tracked Wallets</h1>
+      {dataWallet.length &&
+        dataWallet.map((walletItem) => {
+          return (
+            <div key={walletItem.id}>
+              <SingleWalletWrapper data={walletItem.result} />
+            </div>
+          );
+        })}
+      <AddWallet />
     </div>
   );
-
-} */
-
-  return (
-    <div className='allWallets'>
-      <h1>Tracked Wallets</h1>
-      {dataWallet.length && dataWallet.map(walletItem => {
-        return (
-          <div key={walletItem.id}>
-            <SingleWalletWrapper data={walletItem} />
-          </div>
-        )
-      })
-      }
-      <AddWallet />
-
-    </div>
-  )
 }
 
-export default AllWallets
+export default AllWallets;
