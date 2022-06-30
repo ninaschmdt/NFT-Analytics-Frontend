@@ -18,7 +18,7 @@ const CollectionsTable = () => {
       const { queryResult, error } = await fetchData(trendingCollections);
       if (error) {
         setLoading(false)
-        return console.error(error)
+        return console.log(error)
       }
       setDataCollection(queryResult.data.data.contracts.edges)
       setLoading(false)
