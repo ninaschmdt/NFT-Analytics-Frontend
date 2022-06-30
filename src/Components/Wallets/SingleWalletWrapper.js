@@ -13,7 +13,7 @@ const SingleWalletWrapper = ({data}) => {
     <div className='singleWalletWrapper'>
       <SingleWallet address={data.phone}/>
       {/* this needs to change into the property of our endpoint where we have multiple collections + needs to be limited / sliced to 5 */}
-      {myDummyTransactions.slice(0,5).map(el => { return <MultipleTransactions transactionName={data.name} status={data.address.city} money={data.address.geo.lng} link={data.website} date={data.address.zipcode}/>})}
+      {myDummyTransactions.slice(0,5).map(el => { return <MultipleTransactions key={data.username} transactionName={data.name} status={data.address.city} money={data.address.geo.lng} link={data.website} date={data.address.zipcode}/>})}
     </div>
   )
 }

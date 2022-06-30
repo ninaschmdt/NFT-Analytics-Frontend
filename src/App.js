@@ -62,7 +62,7 @@ const App = () => {
   };
 
   const handleLogin = async (address) => {
-    const baseUrl = "https://localhost:4000";
+    const baseUrl = "https://frozen-dusk-75651.herokuapp.com";
     const response = await axios.get(`${baseUrl}/message?address=${address}`);
     const messageToSign = response?.data?.messageToSign;
 
