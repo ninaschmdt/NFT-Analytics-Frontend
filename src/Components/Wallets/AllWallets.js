@@ -26,7 +26,7 @@ function AllWallets() {
 
   useEffect(() => {
     fetch(
-      `https://api.etherscan.io/api?module=account&action=tokennfttx&address=0x391d69A9113dB3Eb1B8AAb6DB01bf602a9bfE8e1&apikey=${process.env.APIKEY}`
+      `https://api.etherscan.io/api?module=account&action=tokennfttx&address=0x391d69A9113dB3Eb1B8AAb6DB01bf602a9bfE8e1&apikey=${process.env.REACT_APP_ETH_API_KEY}`
     )
       .then((response) => {
         console.log("ETHERSCAN DATA IS HERE");
