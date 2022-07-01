@@ -22,7 +22,7 @@ import { useEffect, useState } from "react";
 
 function AllWallets() {
   const [userInput, setUserInput] = useState("");
-  const [dataWallet, setDataWallet] = useState([]);
+  const [dataTransactions, setDataTransactions] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -34,13 +34,13 @@ function AllWallets() {
         return response.json();
       })
       .then((data) => {
-        setDataWallet(data.result.slice(0, 3));
+        setDataTransactions(data.result.slice(0, 5));
       })
       .catch((error) => {
         console.log("CAN NOT GET DATA");
       });
   }, []);
-  console.log("wallets", dataWallet);
+  console.log("transactions: ", dataTransactions);
 
   // Thois coudl potetialy handle the selective wallet fetching,
   // or fetch all and use find method to get the one that we need
@@ -52,17 +52,17 @@ function AllWallets() {
         return response.json();
       })
       .then((data) => {
-        setDataWallet(data);
+        setDataTransactions(data);
       });
   };
 
   return (
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
-      {loading ? "Loading" : dataWallet.map(walletItem => {
+      {loading ? "Loading" : dataTransactions.map(transactionItem => {
         return (
-          <div className="allWallets" key={walletItem.id}>
-            <MultipleWalletWrapper dataWrapper={walletItem} />
+          <div className="allWallets" key={transactionItem.id}>
+            <MultipleWalletWrapper dataWrapper={transactionItem} />
           </div>
         )
       })

@@ -1,4 +1,5 @@
 import React from 'react'
+import MultipleTransactions from './MultipleTransactions'
 
 const SingleWallet = ({ walletName }) => {
   return (
@@ -15,7 +16,7 @@ const SingleWallet = ({ walletName }) => {
       <div>
         <button className='button-secondary'>Remove</button>
       </div>
-    </div >
+    </div>
   )
 }
 
