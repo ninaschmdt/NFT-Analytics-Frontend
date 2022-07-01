@@ -54,6 +54,14 @@ const App = () => {
     const response = await axios.get(`${baseUrl}/message?address=${address}`);
     const messageToSign = response?.data?.messageToSign;
 
+    console.log("RESPONSE HEREEEEEE!!!!!", messageToSign);
+
+    // turn messageToSign into an array
+    // const messageToSignArray = messageToSign.split("").splice(16, 42).join("");
+    const hello = JSON.parse(messageToSign);
+
+    console.log("MESSAGE TO SIGN ARRAY", hello);
+
     if (!messageToSign) {
       throw new Error("Invalid message to sign");
     }
