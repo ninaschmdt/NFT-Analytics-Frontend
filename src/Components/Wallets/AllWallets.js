@@ -59,7 +59,7 @@ function AllWallets() {
   return (
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
-      {loading ? "Loading" : dataWallet.slice(0, 5).map(walletItem => {
+      {loading ? "Loading" : dataWallet.map(walletItem => {
         return (
           <div className="allWallets" key={walletItem.id}>
             <MultipleWalletWrapper dataWrapper={walletItem} />

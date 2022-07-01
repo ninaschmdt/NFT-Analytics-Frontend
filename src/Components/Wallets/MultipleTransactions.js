@@ -7,37 +7,30 @@ import SingleCollection from '../Collections/SingleCollection'
 import Sales from '../Collections/Sales'
 import SalesFloor from '../Collections/SalesFloor'
 
-const MultipleTransactions = ({ transactionName, status, money, link, date }) => {
+const MultipleTransactions = ({ transactionName, etherscan, date, tokenName }) => {
+
   return (
     <div className='multipleTransactions'>
       <div className='singleTransaction'>
-        <div className='collectionImage'>
-        </div>
         <div className='singleCollectionNameStatusLinkDateTop'>
           <div className='collectionNameStatus'>
             <div className='collectionNameTop'>
               <div>
-                {transactionName}
+                Collection name: {tokenName}
+                <br></br>
+                Contract address for top 10: {transactionName}
               </div>
               <div className='top'>
                 <TopLabel />
               </div>
             </div>
-            <div className='collectionStatus'>
-              <div>
-                {status} |
-              </div>
-              <div>
-                {money}
-              </div>
-            </div>
           </div>
           <div className='collectionLinkDate'>
             <div>
-              {link}
+              Etherscan: {etherscan}
             </div>
             <div>
-              {date}
+              Date: {date}
             </div>
           </div>
         </div>
