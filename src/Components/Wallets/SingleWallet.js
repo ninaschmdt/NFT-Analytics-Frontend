@@ -6,8 +6,8 @@ const SingleWallet = ({ wallet }) => {
       <div className="singleWalletImageNameAddress">
         <div className="walletImage"></div>
         <div className="singleWalletNameAddress">
-          <div className="walletName">{wallet.tokenName}</div>
-          <div className="walletAddress">{/* {address} */}</div>
+         {/*  <div className="walletName">{wallet.tokenName}</div> */}
+          <div className="walletAddress"> {wallet.address}</div>
         </div>
       </div>
       <div>

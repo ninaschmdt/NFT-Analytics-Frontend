@@ -11,7 +11,7 @@ const MultipleWalletWrapper = ({ dataWrapper }) => {
   
   return (
     <div className='singleWalletWrapper'>
-      <SingleWallet />
+    <SingleWallet  wallet={dataWrapper}/>
       <MultipleTransactions transactionName={dataWrapper.contractAddress} etherscan={dataWrapper.hash} date={dataWrapper.timeStamp} tokenName={dataWrapper.tokenName}/>
 
       {/* this needs to change into the property of our endpoint where we have multiple collections + needs to be limited / sliced to 5 */}

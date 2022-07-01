@@ -16,7 +16,7 @@ const CollectionsTable = () => {
     (async () => {
       try {
         setLoading(true)
-        const { data: { queryResults, error } } = await axios.post('http://localhost:5080/icytoolsproxy', { query: trendingCollections });
+        const { data: { queryResults, error } } = await axios.post(`${process.env.REACT_APP_FOMO_BACKEND}/icytoolsproxy`, { query: trendingCollections });
         if (error) {
           setLoading(false)
           return console.log(error)
