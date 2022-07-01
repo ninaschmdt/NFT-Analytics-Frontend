@@ -8,10 +8,7 @@ const SingleWallet = ({ walletName }) => {
         </div>
         <div className='singleWalletNameAddress'>
           <div className='walletName'>
-            {walletName}
-          </div>
-          <div className='walletAddress'>
-            {/* {address} */}
+            {/* {walletName} */}
           </div>
         </div>
       </div>
