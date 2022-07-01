@@ -5,7 +5,9 @@ import SingleTransaction from "./MultipleTransactions";
 import TopLabel from "./TopLabel";
 import AddWallet from "./AddWallet";
 import axios from "axios";
+import { doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { db } from "../../utils/firebaseSetup";
 
 /*const AllWallets = () => {
 
@@ -22,25 +24,38 @@ import { useEffect, useState } from "react";
 
 function AllWallets() {
   const [userInput, setUserInput] = useState("");
+  const [trackedWallets, setTrackedWallets] = useState([]);
   const [dataWallet, setDataWallet] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch(
-      `https://api.etherscan.io/api?module=account&action=tokennfttx&address=0x391d69A9113dB3Eb1B8AAb6DB01bf602a9bfE8e1&apikey=${process.env.REACT_APP_ETH_API_KEY}`
-    )
-      .then((response) => {
-        console.log("ETHERSCAN DATA IS HERE");
-        return response.json();
-      })
-      .then((data) => {
-        setDataWallet(data.result.slice(0, 3));
-      })
-      .catch((error) => {
-        console.log("CAN NOT GET DATA");
-      });
+    const unsub = onSnapshot(
+      doc(db, "users", "0xB0edC4b584045541153E26f3748Ee78EE08aAa6b"),
+      (doc) => setTrackedWallets(doc.data().wallets)
+    );
+    return () => unsub();
   }, []);
-  console.log("wallets", dataWallet);
+
+  useEffect(() => {
+    try {
+      const getWalletsData = async () => {
+        const promisedWallets = trackedWallets.map((wallet) =>
+          axios.get(
+            `https://api.etherscan.io/api?module=account&action=tokennfttx&address=${wallet}&apikey=${process.env.REACT_APP_ETH_API_KEY}`
+          )
+        );
+        const responsesWallet = await Promise.all(promisedWallets);
+        const wallets = responsesWallet.map((response) => ({
+          walletID: response.data.result[0].to,
+          transactions: response.data.result,
+        }));
+        setDataWallet(wallets);
+      };
+      getWalletsData();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [trackedWallets]);
 
   // Thois coudl potetialy handle the selective wallet fetching,
   // or fetch all and use find method to get the one that we need
@@ -59,6 +74,7 @@ function AllWallets() {
   return (
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
+<<<<<<< HEAD
       {loading ? "Loading" : dataWallet.map(walletItem => {
         return (
           <div className="allWallets" key={walletItem.id}>
@@ -67,6 +83,17 @@ function AllWallets() {
         )
       })
       }
+=======
+      {loading
+        ? "Loading"
+        : dataWallet.map((walletItem) => {
+            return (
+              <div className="allWallets" key={walletItem.walletID}>
+                <MultipleWalletWrapper dataWrapper={walletItem} />
+              </div>
+            );
+          })}
+>>>>>>> sven3
       <AddWallet />
     </div>
   );
