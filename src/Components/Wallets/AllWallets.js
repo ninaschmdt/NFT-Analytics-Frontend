@@ -74,16 +74,6 @@ function AllWallets() {
   return (
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
-<<<<<<< HEAD
-      {loading ? "Loading" : dataWallet.map(walletItem => {
-        return (
-          <div className="allWallets" key={walletItem.id}>
-            <MultipleWalletWrapper dataWrapper={walletItem} />
-          </div>
-        )
-      })
-      }
-=======
       {loading
         ? "Loading"
         : dataWallet.map((walletItem) => {
@@ -93,7 +83,6 @@ function AllWallets() {
               </div>
             );
           })}
->>>>>>> sven3
       <AddWallet />
     </div>
   );
