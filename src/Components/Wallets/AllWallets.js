@@ -1,5 +1,5 @@
 import React from "react";
-import SingleWalletWrapper from "./SingleWalletWrapper";
+import MultipleWalletWrapper from "./MultipleWalletWrapper";
 import SingleWallet from "./SingleWallet";
 import SingleTransaction from "./MultipleTransactions";
 import TopLabel from "./TopLabel";
@@ -23,6 +23,7 @@ import { useEffect, useState } from "react";
 function AllWallets() {
   const [userInput, setUserInput] = useState("");
   const [dataWallet, setDataWallet] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -33,7 +34,7 @@ function AllWallets() {
         return response.json();
       })
       .then((data) => {
-        setDataWallet(data);
+        setDataWallet(data.result.slice(0, 3));
       })
       .catch((error) => {
         console.log("CAN NOT GET DATA");
@@ -58,14 +59,14 @@ function AllWallets() {
   return (
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
-      {dataWallet.length &&
-        dataWallet.map((walletItem) => {
-          return (
-            <div key={walletItem.id}>
-              <SingleWalletWrapper data={walletItem.result} />
-            </div>
-          );
-        })}
+      {loading ? "Loading" : dataWallet.slice(0, 5).map(walletItem => {
+        return (
+          <div className="allWallets" key={walletItem.id}>
+            <MultipleWalletWrapper dataWrapper={walletItem} />
+          </div>
+        )
+      })
+      }
       <AddWallet />
     </div>
   );

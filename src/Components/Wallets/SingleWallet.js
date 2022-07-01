@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SingleWallet = ({ address }) => {
+const SingleWallet = ({ walletName }) => {
   return (
     <div className='singleWallet'>
       <div className='singleWalletImageNameAddress'>
@@ -8,9 +8,10 @@ const SingleWallet = ({ address }) => {
         </div>
         <div className='singleWalletNameAddress'>
           <div className='walletName'>
+            {walletName}
           </div>
           <div className='walletAddress'>
-            {address}
+            {/* {address} */}
           </div>
         </div>
       </div>
