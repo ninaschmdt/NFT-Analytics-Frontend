@@ -5,7 +5,7 @@ import SalesFloor from './SalesFloor'
 import TopLabel from '../Wallets/TopLabel'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import fetchData, { trendingCollections } from '../Utils/CollectionFetch'
+import { trendingCollections } from '../Utils/CollectionFetch'
 
 
 const CollectionsTable = () => {
@@ -14,19 +14,23 @@ const CollectionsTable = () => {
 
   useEffect(() => {
     (async () => {
-      setLoading(true)
-      const { queryResult, error } = await fetchData(trendingCollections);
-      if (error) {
+      try {
+        setLoading(true)
+        const { data: { queryResults, error } } = await axios.post(`${process.env.REACT_APP_FOMO_BACKEND}/icytoolsproxy`, { query: trendingCollections });
+        if (error) {
+          setLoading(false)
+          return console.log(error)
+        }
+       setDataCollection(queryResults.data.contracts.edges) 
         setLoading(false)
-        return console.log(error)
+      } catch (error) {
+        console.log(error)
       }
-      setDataCollection(queryResult.data.data.contracts.edges)
-      setLoading(false)
     })()
   }, [])
 
 
-  
+
   //const [dataCollection, setDataCollection] = useState([]);
 
 

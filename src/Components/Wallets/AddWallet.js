@@ -1,15 +1,54 @@
-import React from 'react'
+import React from "react";
+import { doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { useState } from "react";
+import { db } from "../../utils/firebaseSetup";
 
 const AddWallet = () => {
-  return (
-    <div className='addWallet'>
-      <h3>Track Wallet</h3>
-      <form>
-        <input type="text" id="fname" name="fname" placeholder="Paste wallet ID here..." /><br />
-        <input type="submit" className='button' value="Add" />
-      </form>
-    </div>
-  )
-}
+  const [wallet, setWallet] = useState("");
+  const [list, setList] = useState([]);
 
-export default AddWallet
+  const handelSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      if (!wallet) return alert("Please capture a valid waller thingy");
+      const res = await fetch(
+        `https://api.etherscan.io/api?module=account&action=tokennfttx&address=${wallet}&apikey=${process.env.REACT_APP_ETH_API_KEY}`
+      );
+      const data = await res.json();
+      if (data.status === "0") return alert(data.result);
+      const userRef = doc(
+        db,
+        "users",
+        "0xB0edC4b584045541153E26f3748Ee78EE08aAa6b"
+      );
+      await updateDoc(userRef, { wallets: arrayUnion(wallet) });
+      setWallet("");
+      console.log("added wallet to user");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <div className="addWallet">
+      <h3>Track Wallet</h3>
+      <form onSubmit={handelSubmit}>
+        <input
+          type="text"
+          id="fname"
+          name="fname"
+          placeholder="Paste wallet ID here..."
+          value={wallet}
+          onChange={(e) => setWallet(e.target.value)}
+        />
+        <br />
+        <input type="submit" className="button" value="Add" />
+      </form>
+      {list.map((a) => (
+        <div>{a.wallet}</div>
+      ))}
+    </div>
+  );
+};
+
+export default AddWallet;

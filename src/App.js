@@ -1,29 +1,17 @@
 import Web3 from "web3/dist/web3.min.js";
 import { useState } from "react";
-import { initializeApp } from "firebase/app";
 import { getAuth, signInWithCustomToken, signOut } from "firebase/auth";
 import axios from "axios";
-
 import mobileCheck from "./Components/Header/helpers/mobileCheck";
 import getLinker from "./Components/Header/helpers/deepLink";
-
-import "./scss/appcontainer.scss";
-import "./scss/collections.scss";
-import "./scss/wallets.scss";
 import CollectionsTable from "./Components/Collections/CollectionsTable";
 import Wallets from "./Components/Wallets/AllWallets";
 import Header from "./Components/Header/Header";
+import "./scss/appcontainer.scss";
+import "./scss/collections.scss";
+import "./scss/wallets.scss";
+import app from "./utils/firebaseSetup";
 
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-};
-
-const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 const App = () => {
