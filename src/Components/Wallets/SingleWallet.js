@@ -1,7 +1,7 @@
 import React from 'react'
 import MultipleTransactions from './MultipleTransactions'
 
-const SingleWallet = ({ walletName }) => {
+const SingleWallet = ({ singleWallet }) => {
   return (
     <div className='singleWallet'>
       <div className='singleWalletImageNameAddress'>
@@ -16,6 +16,8 @@ const SingleWallet = ({ walletName }) => {
       <div>
         <button className='button-secondary'>Remove</button>
       </div>
+      <MultipleTransactions transactionName={singleWallet.contractAddress} etherscan={singleWallet.hash} date={singleWallet.timeStamp} tokenName={singleWallet.tokenName}/>
+
     </div>
   )
 }

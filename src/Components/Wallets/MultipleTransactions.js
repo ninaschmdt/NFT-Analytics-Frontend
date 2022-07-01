@@ -26,6 +26,7 @@ const MultipleTransactions = ({ transactionName, etherscan, date, tokenName }) =
   console.log('newDate', newDate)
 
   return (
+
     <div className='multipleTransactions'>
       <div className='singleCollectionNameStatusLinkDateTop'>
         <div className='collectionNameStatus'>
