@@ -1,25 +1,20 @@
-import React from 'react'
+import React from "react";
 
-const SingleWallet = ({ walletName }) => {
+const SingleWallet = ({ wallet }) => {
   return (
-    <div className='singleWallet'>
-      <div className='singleWalletImageNameAddress'>
-        <div className='walletImage'>
-        </div>
-        <div className='singleWalletNameAddress'>
-          <div className='walletName'>
-            {walletName}
-          </div>
-          <div className='walletAddress'>
-            {/* {address} */}
-          </div>
+    <div className="singleWallet">
+      <div className="singleWalletImageNameAddress">
+        <div className="walletImage"></div>
+        <div className="singleWalletNameAddress">
+          <div className="walletName">{wallet.tokenName}</div>
+          <div className="walletAddress">{/* {address} */}</div>
         </div>
       </div>
       <div>
-        <button className='button-secondary'>Remove</button>
+        <button className="button-secondary">Remove</button>
       </div>
-    </div >
-  )
-}
+    </div>
+  );
+};
 
-export default SingleWallet
+export default SingleWallet;
