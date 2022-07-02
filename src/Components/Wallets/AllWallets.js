@@ -6,6 +6,7 @@ import TopLabel from "./TopLabel";
 import AddWallet from "./AddWallet";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import MultipleTransactions from "./MultipleTransactions";
 
 /*const AllWallets = () => {
 
@@ -59,14 +60,7 @@ function AllWallets() {
   return (
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
-      {loading ? "Loading" : dataTransactions.map(transactionItem => {
-        return (
-          <div className="allWallets" key={transactionItem.id}>
-            <MultipleWalletWrapper dataWrapper={transactionItem} />
-          </div>
-        )
-      })
-      }
+      <SingleWallet data={dataTransactions}/>
       <AddWallet />
     </div>
   );

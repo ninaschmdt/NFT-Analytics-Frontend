@@ -1,7 +1,11 @@
 import React from 'react'
 import MultipleTransactions from './MultipleTransactions'
+import { useState } from 'react';
 
-const SingleWallet = ({ singleWallet }) => {
+
+const SingleWallet = ({ data }) => {
+  const [loading, setLoading] = useState(false);
+
   return (
     <div className='singleWallet'>
       <div className='singleWalletImageNameAddress'>
@@ -9,15 +13,21 @@ const SingleWallet = ({ singleWallet }) => {
         </div>
         <div className='singleWalletNameAddress'>
           <div className='walletName'>
-            {/* {walletName} */}
+            {/* {transactionItem.to} */}
           </div>
         </div>
       </div>
       <div>
         <button className='button-secondary'>Remove</button>
       </div>
-      <MultipleTransactions transactionName={singleWallet.contractAddress} etherscan={singleWallet.hash} date={singleWallet.timeStamp} tokenName={singleWallet.tokenName}/>
-
+      {loading ? "Loading" : data.map(transactionItem => {
+        return (
+          <div key={transactionItem.id}>
+            <MultipleTransactions transactionName={transactionItem.contractAddress} etherscan={transactionItem.hash} date={transactionItem.timeStamp} tokenName={transactionItem.tokenName} contractAddress={transactionItem.contractAddress} />
+          </div>
+        )
+      })
+      }
     </div>
   )
 }
