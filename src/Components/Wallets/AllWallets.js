@@ -8,6 +8,7 @@ import axios from "axios";
 import { doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../utils/firebaseSetup";
+import MultipleTransactions from "./MultipleTransactions";
 
 /*const AllWallets = () => {
 
@@ -67,22 +68,14 @@ function AllWallets() {
         return response.json();
       })
       .then((data) => {
-        setDataWallet(data);
+        setDataTransactions(data);
       });
   };
 
   return (
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
-      {loading
-        ? "Loading"
-        : dataWallet.map((walletItem) => {
-            return (
-              <div className="allWallets" key={walletItem.walletID}>
-                <MultipleWalletWrapper dataWrapper={walletItem} />
-              </div>
-            );
-          })}
+      <SingleWallet data={dataTransactions}/>
       <AddWallet />
     </div>
   );
