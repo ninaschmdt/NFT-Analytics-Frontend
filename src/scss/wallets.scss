@@ -110,6 +110,7 @@
 .multipleTransactions {
     @include component-row();
     border-top: solid 1px $lightgrey;
+    width: 100%
 }
 
 .multipleTransactions:hover {

@@ -30,9 +30,11 @@ const MultipleTransactions = ({ transactionName, etherscan, date, tokenName, con
       <div className='multipleTransactions'>
         <a className='bloodyLink' href={`https://opensea.io/assets?search%5Bquery%5D=${contractAddress}`} target='_blank'>
           <div className='walletNameTop'>
-            <h3>{tokenName}</h3>
-            <br></br>
-            {/* Contract address for top 10: {transactionName} */}
+            <div>
+              <h3>{tokenName}</h3>
+              <br></br>
+              {/* Contract address for top 10: {transactionName} */}
+            </div>
             <div className='top'>
               <TopLabel />
             </div>

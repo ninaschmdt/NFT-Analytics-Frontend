@@ -1,5 +1,4 @@
 import React from "react";
-import MultipleWalletWrapper from "./MultipleWalletWrapper";
 import SingleWallet from "./SingleWallet";
 import SingleTransaction from "./MultipleTransactions";
 import TopLabel from "./TopLabel";
