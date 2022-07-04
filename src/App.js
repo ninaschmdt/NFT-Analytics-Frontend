@@ -18,6 +18,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [address, setAddress] = useState("");
   const [myWalletAddress, setMyWalletAddress] = useState("");
+  const [clearWallets, setClearWallets] = useState(true);
 
   const onPressConnect = async () => {
     setLoading(true);
@@ -80,11 +81,13 @@ const App = () => {
 
     await signInWithCustomToken(auth, customToken);
     setAddress(address);
+    setClearWallets(false);
   };
 
   const onPressLogout = () => {
     setAddress("");
     signOut(auth);
+    setClearWallets(true);
   };
 
   return (
@@ -97,7 +100,11 @@ const App = () => {
       />
       <div className="content">
         <CollectionsTable />
-        <Wallets myWalletAddress={myWalletAddress} />
+        <Wallets
+          myWalletAddress={myWalletAddress}
+          clearWallets={clearWallets}
+          setClearWallets={setClearWallets}
+        />
       </div>
     </div>
   );

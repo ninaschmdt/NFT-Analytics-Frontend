@@ -19,6 +19,7 @@ const SingleWallet = ({ data }) => {
       {loading
         ? "Loading"
         : data.transactions.slice(0, 5).map((transactionItem) => {
+<<<<<<< HEAD
           return (
             <div key={transactionItem.id}>
               <MultipleTransactions
@@ -31,6 +32,20 @@ const SingleWallet = ({ data }) => {
             </div>
           );
         })}
+=======
+            return (
+              <div key={transactionItem.id}>
+                <MultipleTransactions
+                  transactionName={transactionItem.contractAddress}
+                  etherscan={transactionItem.hash}
+                  date={transactionItem.timeStamp}
+                  tokenName={transactionItem.tokenName}
+                  contractAddress={transactionItem.contractAddress}
+                />
+              </div>
+            );
+          })}
+>>>>>>> sven4
     </div>
   );
 };
