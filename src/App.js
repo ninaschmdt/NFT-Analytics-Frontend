@@ -17,6 +17,7 @@ const auth = getAuth(app);
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [address, setAddress] = useState("");
+  const [myWalletAddress, setMyWalletAddress] = useState("");
 
   const onPressConnect = async () => {
     setLoading(true);
@@ -54,6 +55,12 @@ const App = () => {
     const response = await axios.get(`${baseUrl}/message?address=${address}`);
     const messageToSign = response?.data?.messageToSign;
 
+    console.log("RESPONSE HEREEEEEE!!!!!", messageToSign);
+
+    // turn messageToSign into an array
+    const walletAddress = messageToSign.split("").splice(16, 42).join("");
+    setMyWalletAddress(walletAddress);
+
     if (!messageToSign) {
       throw new Error("Invalid message to sign");
     }
@@ -90,7 +97,7 @@ const App = () => {
       />
       <div className="content">
         <CollectionsTable />
-        <Wallets />
+        <Wallets myWalletAddress={myWalletAddress} />
       </div>
     </div>
   );

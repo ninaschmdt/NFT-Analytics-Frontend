@@ -23,7 +23,7 @@ import MultipleTransactions from "./MultipleTransactions";
 
   console.log('data wallet', dataWallet)*/
 
-function AllWallets() {
+function AllWallets({ myWalletAddress }) {
   const [userInput, setUserInput] = useState("");
   const [trackedWallets, setTrackedWallets] = useState([]);
   const [dataWallet, setDataWallet] = useState([]);
@@ -86,7 +86,8 @@ function AllWallets() {
             );
           })}
       <SingleWallet data={dataTransactions} />
-      <AddWallet />
+
+      <AddWallet myWalletAddress={myWalletAddress} />
     </div>
   );
 }
