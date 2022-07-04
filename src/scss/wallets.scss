@@ -108,9 +108,8 @@
 }
 
 .multipleTransactions {
-    @include component-column();
+    @include component-row();
     border-top: solid 1px $lightgrey;
-
 }
 
 .multipleTransactions:hover {
@@ -121,7 +120,6 @@
     @include component-row;
     margin: 0 16px 0 16px;
     font-weight: bold;
-
 }
 
 .collectionLinkDate {

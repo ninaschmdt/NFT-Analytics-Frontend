@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const SingleWallet = ({ data }) => {
   const [loading, setLoading] = useState(false);
-
+  // console.log("DATA is here for single wallet", data)
   return (
     <div className="singleWallet">
       <div className="singleWalletImageNameAddress">
@@ -18,19 +18,19 @@ const SingleWallet = ({ data }) => {
       </div>
       {loading
         ? "Loading"
-        : data.map((transactionItem) => {
-            return (
-              <div key={transactionItem.id}>
-                <MultipleTransactions
-                  transactionName={transactionItem.contractAddress}
-                  etherscan={transactionItem.hash}
-                  date={transactionItem.timeStamp}
-                  tokenName={transactionItem.tokenName}
-                  contractAddress={transactionItem.contractAddress}
-                />
-              </div>
-            );
-          })}
+        : data.transactions.slice(0, 5).map((transactionItem) => {
+          return (
+            <div key={transactionItem.id}>
+              <MultipleTransactions
+                transactionName={transactionItem.contractAddress}
+                etherscan={transactionItem.hash}
+                date={transactionItem.timeStamp}
+                tokenName={transactionItem.tokenName}
+                contractAddress={transactionItem.contractAddress}
+              />
+            </div>
+          );
+        })}
     </div>
   );
 };
