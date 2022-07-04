@@ -23,7 +23,7 @@ import MultipleTransactions from "./MultipleTransactions";
 
   console.log('data wallet', dataWallet)*/
 
-function AllWallets() {
+function AllWallets({ myWalletAddress }) {
   const [userInput, setUserInput] = useState("");
   const [trackedWallets, setTrackedWallets] = useState([]);
   const [dataWallet, setDataWallet] = useState([]);
@@ -76,8 +76,19 @@ function AllWallets() {
   return (
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
-      <SingleWallet data={dataTransactions}/>
-      <AddWallet />
+
+      {loading
+        ? "Loading"
+        : dataWallet.map((walletItem) => {
+            return (
+              <div className="allWallets" key={walletItem.id}>
+                <MultipleWalletWrapper dataWrapper={walletItem} />
+              </div>
+            );
+          })}
+      <SingleWallet data={dataTransactions} />
+
+      <AddWallet myWalletAddress={myWalletAddress} />
     </div>
   );
 }

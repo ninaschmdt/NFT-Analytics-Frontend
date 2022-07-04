@@ -3,7 +3,7 @@ import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../../utils/firebaseSetup";
 
-const AddWallet = () => {
+const AddWallet = ({ myWalletAddress }) => {
   const [wallet, setWallet] = useState("");
   const [list, setList] = useState([]);
 
@@ -16,11 +16,7 @@ const AddWallet = () => {
       );
       const data = await res.json();
       if (data.status === "0") return alert(data.result);
-      const userRef = doc(
-        db,
-        "users",
-        "0xB0edC4b584045541153E26f3748Ee78EE08aAa6b"
-      );
+      const userRef = doc(db, "users", myWalletAddress);
       await updateDoc(userRef, { wallets: arrayUnion(wallet) });
       setWallet("");
       console.log("added wallet to user");
@@ -28,7 +24,7 @@ const AddWallet = () => {
       console.log(error);
     }
   };
-
+  console.log("HOOOORAY", myWalletAddress);
   return (
     <div className="addWallet">
       <h3>Track Wallet</h3>
