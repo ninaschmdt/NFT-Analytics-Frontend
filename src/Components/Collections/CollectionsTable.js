@@ -41,7 +41,7 @@ const CollectionsTable = () => {
   return (
     <div className='collectionsTable'>
       <div className='tableHeader'>
-        <h1>Top 10 Trending</h1>
+        <h1>Top 10 Trending Collections</h1>
         <TopLabel />
       </div>
       <div className='tableSubHeader'>
@@ -57,7 +57,7 @@ const CollectionsTable = () => {
               <SalesFloor address={collectionItem.node.address} floor={collectionItem.node.stats.floor} prevDataCollection={prevDataCollection} />
             </div>
             <div className='singleCollectionSales'>
-              <Sales data={collectionItem.node.stats.totalSales} />
+              <Sales address={collectionItem.node.address} totalSales={collectionItem.node.stats.totalSales} prevDataCollection={prevDataCollection} />
             </div>
           </div>
         )
