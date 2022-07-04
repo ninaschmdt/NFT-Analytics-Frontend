@@ -18,7 +18,7 @@ const SingleWallet = ({ data }) => {
       </div>
       {loading
         ? "Loading"
-        : data.map((transactionItem) => {
+        : data.transactions.slice(0, 5).map((transactionItem) => {
             return (
               <div key={transactionItem.id}>
                 <MultipleTransactions

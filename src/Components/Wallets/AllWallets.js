@@ -23,17 +23,18 @@ import MultipleTransactions from "./MultipleTransactions";
 
   console.log('data wallet', dataWallet)*/
 
-function AllWallets({ myWalletAddress }) {
+function AllWallets({ myWalletAddress, clearWallets }) {
   const [userInput, setUserInput] = useState("");
   const [trackedWallets, setTrackedWallets] = useState([]);
   const [dataWallet, setDataWallet] = useState([]);
   const [loading, setLoading] = useState(false);
   const [dataTransactions, setDataTransactions] = useState([]);
 
+  console.log("MY WALLET ADDRESS", myWalletAddress);
+
   useEffect(() => {
-    const unsub = onSnapshot(
-      doc(db, "users", "0xB0edC4b584045541153E26f3748Ee78EE08aAa6b"),
-      (doc) => setTrackedWallets(doc.data().wallets)
+    const unsub = onSnapshot(doc(db, "users", myWalletAddress), (doc) =>
+      setTrackedWallets(doc.data().wallets)
     );
     return () => unsub();
   }, []);
@@ -77,8 +78,8 @@ function AllWallets({ myWalletAddress }) {
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
 
-      {loading
-        ? "Loading"
+      {clearWallets
+        ? "Log in to see your wallets"
         : dataWallet.map((walletItem) => {
             return (
               <div className="allWallets" key={walletItem.id}>

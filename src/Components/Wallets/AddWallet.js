@@ -10,7 +10,7 @@ const AddWallet = ({ myWalletAddress }) => {
   const handelSubmit = async (e) => {
     try {
       e.preventDefault();
-      if (!wallet) return alert("Please capture a valid waller thingy");
+      if (!wallet) return alert("Please connect your wallet first");
       const res = await fetch(
         `https://api.etherscan.io/api?module=account&action=tokennfttx&address=${wallet}&apikey=${process.env.REACT_APP_ETH_API_KEY}`
       );
