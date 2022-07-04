@@ -11,7 +11,7 @@
     border: 1px solid $lightgrey;
     color: $black;
     background-color: $white;
-    width: 95%;
+    width: 90%;
 }
 
 .allWallets {
@@ -46,6 +46,7 @@
         h1 {
             padding: 0 0.5em 0 0.5em;
         }
+
         min-width: auto;
     }
 
@@ -58,6 +59,7 @@
         h1 {
             padding: 0 0.5em 0 0.5em;
         }
+
         min-width: auto;
     }
 
@@ -78,18 +80,21 @@
     display: block;
 
     h3 {
-        margin: 16px 16px 0 16px;
+        margin: 16px;
     }
 
     .button {
         width: 90%;
+    }
+
+    input {
+        margin-bottom: 16px;
     }
 }
 
 .singleWallet {
     @include component-column();
     border-top: solid 1px $lightgrey;
-    padding-right: 1em;
 }
 
 .singleWalletImageNameAddress {
@@ -104,36 +109,45 @@
 
 .multipleTransactions {
     @include component-column();
+    border-top: solid 1px $lightgrey;
+
 }
 
 .multipleTransactions:hover {
     @include hover();
 }
 
-.singleTransaction {
-    @include component-row();
-    border-top: solid 1px $lightgrey;
-    padding-right: 1em;
-}
+.walletNameTop {
+    @include component-row;
+    margin: 0 16px 0 16px;
+    font-weight: bold;
 
-.singleCollectionNameStatusLinkDateTop {
-    @include component-column();
-    width: 100%;
-}
-
-.collectionNameTop {
-    @include component-row()
-}
-
-.collectionNameStatus {
-    @include component-column()
-}
-
-.collectionStatus {
-    @include component-row();
-    justify-content: flex-start;
 }
 
 .collectionLinkDate {
-    @include component-column()
+    @include component-row;
+    margin: 0 16px 16px 16px;
+}
+
+.bloodyLink {
+    text-decoration: none;
+    color: $black;
+}
+
+.bloodyLink:hover {
+    color: $black;
+}
+
+.etherscan {
+    color: $black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.etherscan:hover {
+    color: $blue;
+}
+
+.newDate {
+    color: $darkgrey;
 }
