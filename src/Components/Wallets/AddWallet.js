@@ -26,19 +26,11 @@ const AddWallet = ({ myWalletAddress }) => {
   };
   console.log("HOOOORAY", myWalletAddress);
   return (
-    <div className="addWallet">
-      <h3>Track Wallet</h3>
-      <form onSubmit={handelSubmit}>
-        <input
-          type="text"
-          id="fname"
-          name="fname"
-          placeholder="Paste wallet ID here..."
-          value={wallet}
-          onChange={(e) => setWallet(e.target.value)}
-        />
-        <br />
-        <input type="submit" className="button" value="Add" />
+    <div className='addWallet'>
+      <h1>Track Wallet</h1>
+      <form>
+        <input type="text" id="fname" name="fname" placeholder="Paste wallet ID here..." /><br />
+        <input type="submit" className='button' value="Add" />
       </form>
       {list.map((a) => (
         <div>{a.wallet}</div>

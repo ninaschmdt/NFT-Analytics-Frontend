@@ -1,5 +1,5 @@
 import React from 'react'
-import ArrowUpRight from '../Images/arrow-up-right.svg'
+
 const SalesFloorChange = () => {
   return (
     <div className='salesChange'>

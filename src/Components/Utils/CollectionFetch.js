@@ -13,13 +13,9 @@ export const trendingCollections = ` {
               }
               circulatingSupply
             }
-            tokens {
-              edges {
-                node {
-                  images {
-                    url
-                  }
-                }
+            token(tokenId: "1") {
+              images {
+                url
               }
             }
           }

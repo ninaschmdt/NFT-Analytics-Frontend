@@ -1,5 +1,4 @@
 import React from 'react'
-import ArrowDownRight from '../Images/arrow-down-right.svg'
 
 const SalesChange = () => {
   return (
