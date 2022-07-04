@@ -30,13 +30,13 @@ const CollectionsTable = () => {
   return (
     <div className='collectionsTable'>
       <div className='tableHeader'>
-        <h1>Top 10 Collections</h1>
+        <h1>Top 10 Trending</h1>
         <TopLabel />
       </div>
       <div className='tableSubHeader'>
         <div className='singleCollection'>Collection</div>
         <div className='singleCollectionSales'>Sales Floor</div>
-        <div className='singleCollectionSales'>Sales</div>
+        <div className='singleCollectionSales'>Sales per Hour</div>
       </div>
       {dataCollection.map(collectionItem => {
         return (

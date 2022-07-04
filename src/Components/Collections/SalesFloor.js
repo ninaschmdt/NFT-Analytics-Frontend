@@ -8,17 +8,17 @@ const SalesFloor = ({ floor, address, prevDataCollection }) => {
   useEffect(() => {
     const previousData = prevDataCollection.find(el => el.node.address === address)
     if (previousData) {
-      if (floor === previousData.node.stats.floor) {
-        setItRaised(0)
-        return setChange(0)
-      }
+      // if (floor === previousData.node.stats.floor) {
+      //   setItRaised(0)
+      //   return setChange(0)
+      // }
       if (floor > previousData.node.stats.floor) {
         setItRaised(1)
-        return setChange((previousData.node.stats.floor * 100) / floor)
+        return setChange(100-((previousData.node.stats.floor * 100) / floor))
       }
       if (floor < previousData.node.stats.floor) {
         setItRaised(2)
-        return setChange((floor * 100) / previousData.node.stats.floor)
+        return setChange(100-((floor * 100) / previousData.node.stats.floor))
       }
     }
   }, [prevDataCollection])
