@@ -82,11 +82,11 @@ function AllWallets({ myWalletAddress }) {
         : dataWallet.map((walletItem) => {
             return (
               <div className="allWallets" key={walletItem.id}>
-                <MultipleWalletWrapper dataWrapper={walletItem} />
+                <SingleWallet data={walletItem} />
               </div>
             );
           })}
-      <SingleWallet data={dataTransactions} />
+      {/* <SingleWallet data={dataTransactions} /> */}
 
       <AddWallet myWalletAddress={myWalletAddress} />
     </div>
