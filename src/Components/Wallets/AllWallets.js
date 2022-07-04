@@ -75,7 +75,17 @@ function AllWallets() {
   return (
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
-      <SingleWallet data={dataTransactions}/>
+
+      {loading
+        ? "Loading"
+        : dataWallet.map((walletItem) => {
+            return (
+              <div className="allWallets" key={walletItem.id}>
+                <MultipleWalletWrapper dataWrapper={walletItem} />
+              </div>
+            );
+          })}
+      <SingleWallet data={dataTransactions} />
       <AddWallet />
     </div>
   );
