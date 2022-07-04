@@ -5,13 +5,8 @@ import SalesFloor from './SalesFloor'
 import TopLabel from '../Wallets/TopLabel'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-<<<<<<< Updated upstream
-import { trendingCollections } from '../Utils/CollectionFetch'
-import fetchData from '../Utils/CollectionFetch'
-=======
 import fetchData, { trendingCollections } from '../Utils/CollectionFetch'
 import Loading from '../Images/Loading'
->>>>>>> Stashed changes
 
 
 const CollectionsTable = () => {
@@ -44,11 +39,7 @@ const CollectionsTable = () => {
         <div className='singleCollectionSales'>Sales Floor</div>
         <div className='singleCollectionSales'>Sales per Hour</div>
       </div>
-<<<<<<< Updated upstream
-      {dataCollection.map(collectionItem => {
-=======
       {loading ? <Loading/> : dataCollection.map(collectionItem => {
->>>>>>> Stashed changes
         return (
           <div className="singleCollectionContainer" key={collectionItem.node.address}>
             <SingleCollection data={collectionItem} />
