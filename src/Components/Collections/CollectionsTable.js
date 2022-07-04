@@ -39,7 +39,7 @@ const CollectionsTable = () => {
         <div className='singleCollectionSales'>Sales Floor</div>
         <div className='singleCollectionSales'>Sales per Hour</div>
       </div>
-      {loading ? <Loading/> : dataCollection.map(collectionItem => {
+      {dataCollection.map(collectionItem => {
         return (
           <div className="singleCollectionContainer" key={collectionItem.node.address}>
             <SingleCollection data={collectionItem} />
