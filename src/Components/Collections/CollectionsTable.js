@@ -63,6 +63,12 @@ const CollectionsTable = () => {
         )
       })
       }
+      <div className='icytwitter'>
+        <div>
+          With support from <a href='https://icy.tools/' target='_blank'>ICY</a>, stay connected with us: <a href='https://twitter.com/fomotracker' target='_blank'>Twitter
+          </a>
+        </div>
+      </div>
     </div>
   )
 }

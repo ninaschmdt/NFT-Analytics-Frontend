@@ -89,16 +89,18 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <Header
-        onPressConnect={onPressConnect}
-        onPressLogout={onPressLogout}
-        loading={loading}
-        address={address}
-      />
-      <div className="content">
-        <CollectionsTable />
-        <Wallets myWalletAddress={myWalletAddress} />
+    <div>
+      <div className="App">
+        <Header
+          onPressConnect={onPressConnect}
+          onPressLogout={onPressLogout}
+          loading={loading}
+          address={address}
+        />
+        <div className="content">
+          <CollectionsTable />
+          <Wallets myWalletAddress={myWalletAddress} />
+        </div>
       </div>
       <Footer />
     </div>
