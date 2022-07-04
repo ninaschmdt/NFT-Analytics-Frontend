@@ -104,7 +104,6 @@ const App = () => {
         <Wallets
           myWalletAddress={myWalletAddress}
           clearWallets={clearWallets}
-          setClearWallets={setClearWallets}
         />
       </div>
       <Footer />

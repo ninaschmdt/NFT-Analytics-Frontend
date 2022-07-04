@@ -29,8 +29,6 @@ function AllWallets({ myWalletAddress, clearWallets }) {
   const [loading, setLoading] = useState(false);
   const [dataTransactions, setDataTransactions] = useState([]);
 
-  console.log("MY WALLET ADDRESS", myWalletAddress);
-
   useEffect(() => {
     const unsub = onSnapshot(doc(db, "users", myWalletAddress), (doc) =>
       setTrackedWallets(doc.data().wallets)
