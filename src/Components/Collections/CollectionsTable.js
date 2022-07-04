@@ -9,35 +9,24 @@ import fetchData, { trendingCollections } from '../Utils/CollectionFetch'
 
 
 const CollectionsTable = () => {
-  const [loading, setLoading] = useState(false);
   const [dataCollection, setDataCollection] = useState([]);
+  const [prevDataCollection, setPrevDataCollection] = useState([]);
 
   useEffect(() => {
-    (async () => {
-      setLoading(true)
+    const getData = async () => {
       const { queryResult, error } = await fetchData(trendingCollections);
-      if (error) {
-        setLoading(false)
-        return console.log(error)
-      }
-      setDataCollection(queryResult.data.data.contracts.edges.slice(0, 10))
-      setLoading(false)
-    })()
+      if (error) return console.log(error)
+      setDataCollection(prev => {
+        setPrevDataCollection(prev)
+        return queryResult.data.data.contracts.edges.slice(0, 10)
+      })
+    }
+    getData()
+    const id = setInterval(getData, 5000);
+
+    return () => clearInterval(id)
   }, [])
 
-
-  
-  //const [dataCollection, setDataCollection] = useState([]);
-
-
-
-  /*useEffect(() => {
-    axios('https://jsonplaceholder.typicode.com/users') 
-      .then(res => setDataCollection(res.data.slice(0, 10)))
-      .catch(err => console.log(err))
-  }, []);
-*/
-  console.log('THIS IS THE DATA COLLECTION', dataCollection)
   return (
     <div className='collectionsTable'>
       <div className='tableHeader'>
@@ -49,12 +38,12 @@ const CollectionsTable = () => {
         <div className='singleCollectionSales'>Sales Floor</div>
         <div className='singleCollectionSales'>Sales</div>
       </div>
-      {loading ? "Loading" : dataCollection.map(collectionItem => {
+      {dataCollection.map(collectionItem => {
         return (
-          <div className="singleCollectionContainer" key={collectionItem.id}>
+          <div className="singleCollectionContainer" key={collectionItem.node.address}>
             <SingleCollection data={collectionItem} />
             <div className='singleCollectionSales'>
-              <SalesFloor data={collectionItem.node.stats.floor} />
+              <SalesFloor address={collectionItem.node.address} floor={collectionItem.node.stats.floor} prevDataCollection={prevDataCollection} />
             </div>
             <div className='singleCollectionSales'>
               <Sales data={collectionItem.node.stats.totalSales} />

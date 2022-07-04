@@ -1,33 +1,50 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import SalesFloorChange from './SalesFloorChange'
 
-const SalesFloor = ({ data }) => {
+const SalesFloor = ({ floor, address, prevDataCollection }) => {
+  const [itRaised, setItRaised] = useState(0)
+  const [change, setChange] = useState(0)
 
-// const test = SalesFloor.addEventListener(data, procent => {
-//     data = procent.value
-//   })
+  useEffect(() => {
+    const previousData = prevDataCollection.find(el => el.node.address === address)
+    if (previousData) {
+      if (floor === previousData.node.stats.floor) {
+        setItRaised(0)
+        return setChange(0)
+      }
+      if (floor > previousData.node.stats.floor) {
+        setItRaised(1)
+        return setChange((previousData.node.stats.floor * 100) / floor)
+      }
+      if (floor < previousData.node.stats.floor) {
+        setItRaised(2)
+        return setChange((floor * 100) / previousData.node.stats.floor)
+      }
+    }
+  }, [prevDataCollection])
 
-//   const saveToLocalStorage = () => {
-//     localStorage.setItem('data', data);
-//   }
-
-//   console.log('savetolocal', saveToLocalStorage)
-
-
-  // console.log('data for sales floor:', data)
   return (
-    <div className='sales'>
-      {data}
+    <div className='sales' className={itRaised ? 'itRaised' : null}>
+      {floor}
       <div className='salesChange'>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4.6665 11.3333L11.3332 4.66663" stroke="#00A010" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M4.6665 4.66663H11.3332V11.3333" stroke="#00A010" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        0.56%
+        {
+          itRaised === 0 ?
+            '--' :
+            itRaised === 1 ? <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.6665 11.3333L11.3332 4.66663" stroke="#00A010" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M4.6665 4.66663H11.3332V11.3333" stroke="#00A010" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            </svg> :
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.66748 4.66687L11.3341 11.3335" stroke="#A00013" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M11.3341 4.66687V11.3335H4.66748" stroke="#A00013" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+
+        }
+        <span style={{ color: change === 1 ? 'green' : change === 2 ? 'red' : 'black' }}>{change}%</span>
       </div>
     </div>
   )
- 
+
 }
 
 
