@@ -12,20 +12,30 @@ import fetchData from '../Utils/CollectionFetch'
 const CollectionsTable = () => {
   const [dataCollection, setDataCollection] = useState([]);
   const [prevDataCollection, setPrevDataCollection] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const getData = async () => {
-      const { queryResult, error } = await fetchData(trendingCollections);
-      if (error) return console.log(error)
-      setDataCollection(prev => {
-        setPrevDataCollection(prev)
-        return queryResult.data.data.contracts.edges.slice(0, 10)
-      })
-    }
+    const getData = (async () => {
+      try {
+        setLoading(true)
+        const { data: { queryResults, error } } = await axios.post(`${process.env.REACT_APP_FOMO_BACKEND}/icytoolsproxy`, { query: trendingCollections });
+        if (error) {
+          setLoading(false)
+          return console.log(error)
+        }
+        setDataCollection(prev => {
+          setPrevDataCollection(prev)
+          return queryResults.data.contracts.edges.slice(0, 10)
+        })
+        setLoading(false)
+      } catch (error) {
+        console.log(error)
+      }
+    })
     getData()
     const id = setInterval(getData, 5000);
-
     return () => clearInterval(id)
+
   }, [])
 
   return (
