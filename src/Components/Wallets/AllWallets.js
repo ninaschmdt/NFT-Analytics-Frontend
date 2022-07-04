@@ -28,6 +28,7 @@ function AllWallets() {
   const [trackedWallets, setTrackedWallets] = useState([]);
   const [dataWallet, setDataWallet] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [dataTransactions, setDataTransactions] = useState([]);
 
   useEffect(() => {
     const unsub = onSnapshot(
@@ -61,16 +62,16 @@ function AllWallets() {
   // Thois coudl potetialy handle the selective wallet fetching,
   // or fetch all and use find method to get the one that we need
 
-  const search = () => {
-    //console.log(userInput);
-    fetch("" + userInput)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setDataTransactions(data);
-      });
-  };
+  // const search = () => {
+  //   //console.log(userInput);
+  //   fetch("" + userInput)
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setDataTransactions(data);
+  //     });
+  // };
 
   return (
     <div className="allWallets">
