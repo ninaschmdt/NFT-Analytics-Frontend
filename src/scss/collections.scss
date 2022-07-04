@@ -47,6 +47,8 @@
     background-color: $lightbluegrey;
     color: $darkgrey;
     min-height: 3.5em;
+    gap: 16px;
+
 }
 
 .singleCollection {
@@ -62,6 +64,8 @@
     
     @include component-row();
     border-top: solid 1px $lightgrey;
+    gap: 16px;
+
 
 }
 
@@ -87,14 +91,11 @@
     font-weight: bold;
 }
 
-.salesChange {
+
+.itRaised{
     font-weight: normal;
 }
 
-.itRaised{
-    // background-color: yellow
-}
-
 .itWentDown{
-    // background-color: red
+    font-weight: normal;
 }
