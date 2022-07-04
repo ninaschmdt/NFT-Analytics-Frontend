@@ -29,12 +29,6 @@ const CollectionsTable = () => {
     })()
   }, [])
 
-
-
-  //const [dataCollection, setDataCollection] = useState([]);
-
-
-
   /*useEffect(() => {
     axios('https://jsonplaceholder.typicode.com/users') 
       .then(res => setDataCollection(res.data.slice(0, 10)))
