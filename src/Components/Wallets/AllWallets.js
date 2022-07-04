@@ -22,7 +22,7 @@ import { db } from "../../utils/firebaseSetup";
 
   console.log('data wallet', dataWallet)*/
 
-function AllWallets() {
+function AllWallets({ myWalletAddress }) {
   const [userInput, setUserInput] = useState("");
   const [trackedWallets, setTrackedWallets] = useState([]);
   const [dataWallet, setDataWallet] = useState([]);
@@ -83,7 +83,7 @@ function AllWallets() {
               </div>
             );
           })}
-      <AddWallet />
+      <AddWallet myWalletAddress={myWalletAddress} />
     </div>
   );
 }

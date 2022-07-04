@@ -17,6 +17,7 @@ const auth = getAuth(app);
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [address, setAddress] = useState("");
+  const [myWalletAddress, setMyWalletAddress] = useState("");
 
   const onPressConnect = async () => {
     setLoading(true);
@@ -57,10 +58,8 @@ const App = () => {
     console.log("RESPONSE HEREEEEEE!!!!!", messageToSign);
 
     // turn messageToSign into an array
-    // const messageToSignArray = messageToSign.split("").splice(16, 42).join("");
-    const hello = JSON.parse(messageToSign);
-
-    console.log("MESSAGE TO SIGN ARRAY", hello);
+    const walletAddress = messageToSign.split("").splice(16, 42).join("");
+    setMyWalletAddress(walletAddress);
 
     if (!messageToSign) {
       throw new Error("Invalid message to sign");
@@ -98,7 +97,7 @@ const App = () => {
       />
       <div className="content">
         <CollectionsTable />
-        <Wallets />
+        <Wallets myWalletAddress={myWalletAddress} />
       </div>
     </div>
   );
