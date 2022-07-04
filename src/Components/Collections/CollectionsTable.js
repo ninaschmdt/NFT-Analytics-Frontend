@@ -20,7 +20,7 @@ const CollectionsTable = () => {
         setLoading(false)
         return console.log(error)
       }
-      setDataCollection(queryResult.data.data.contracts.edges)
+      setDataCollection(queryResult.data.data.contracts.edges.slice(0, 10))
       setLoading(false)
     })()
   }, [])
