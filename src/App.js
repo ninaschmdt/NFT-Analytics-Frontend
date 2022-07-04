@@ -11,6 +11,7 @@ import "./scss/appcontainer.scss";
 import "./scss/collections.scss";
 import "./scss/wallets.scss";
 import app from "./utils/firebaseSetup";
+import Footer from "./Components/Footer/Footer";
 
 const auth = getAuth(app);
 
@@ -106,6 +107,7 @@ const App = () => {
           setClearWallets={setClearWallets}
         />
       </div>
+      <Footer />
     </div>
   );
 };
