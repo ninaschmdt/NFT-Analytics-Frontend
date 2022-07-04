@@ -56,3 +56,12 @@ button {
   @include button();
   border: 0px solid $blue;
 }
+
+.loading svg {
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  width: 93%;
+  padding: 32px;
+
+}

@@ -47,6 +47,8 @@
     background-color: $lightbluegrey;
     color: $darkgrey;
     min-height: 3.5em;
+    gap: 8px;
+
 }
 
 .singleCollection {
@@ -62,6 +64,7 @@
     
     @include component-row();
     border-top: solid 1px $lightgrey;
+    gap: 8px;
 
 }
 
