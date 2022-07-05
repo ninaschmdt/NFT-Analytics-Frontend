@@ -22,10 +22,12 @@ const AddWallet = ({ myWalletAddress }) => {
       const userSnap = await getDoc(userRef);
       if (!userSnap.exists()) return toast.error("User does not exists");
       const { wallets: walletsInUser } = userSnap.data();
-      if (walletsInUser.length === 3) {
+
+      if ( walletsInUser?.length === 3) {
         setWallet("");
         return toast.error("You can only track 3 wallets");
       }
+      console.log("hehe")
       await updateDoc(userRef, { wallets: arrayUnion(wallet) });
       setWallet("");
       toast.success("Added wallet to user");
