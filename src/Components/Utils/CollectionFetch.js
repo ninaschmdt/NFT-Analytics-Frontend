@@ -12,11 +12,8 @@ export const trendingCollections = ` {
                 floor
               }
               circulatingSupply
-            }
-            token(tokenId: "1") {
-              images {
-                url
-              }
+              unsafeOpenseaImageUrl
+              unsafeOpenseaSlug
             }
           }
         }

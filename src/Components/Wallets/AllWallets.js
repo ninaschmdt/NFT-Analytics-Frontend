@@ -4,7 +4,7 @@ import SingleTransaction from "./MultipleTransactions";
 import TopLabel from "./TopLabel";
 import AddWallet from "./AddWallet";
 import axios from "axios";
-import { doc, onSnapshot } from "firebase/firestore";
+import { collection, doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../utils/firebaseSetup";
 import MultipleTransactions from "./MultipleTransactions";
@@ -30,10 +30,16 @@ function AllWallets({ myWalletAddress, clearWallets }) {
   const [dataTransactions, setDataTransactions] = useState([]);
 
   useEffect(() => {
-    const unsub = onSnapshot(
-      doc(db, "0x391d69A9113dB3Eb1B8AAb6DB01bf602a9bfE8e1"),
-      (doc) => setTrackedWallets(doc.data().wallets)
-    );
+    console.log('THIS IS RUNNING')
+    // const unsub = onSnapshot(
+    //   doc(db, myWalletAddress),
+    //   (doc) => setTrackedWallets(doc.data().wallets)
+    // );
+    // this fixed the firebase issue (write collection instead of doc)
+    const unsub = onSnapshot(collection(db, "users"), (doc) => {
+      console.log("Current data: ", doc.data());
+ });
+    console.log('THIS IS UNSUB', unsub)
     return () => unsub();
   }, []);
 
