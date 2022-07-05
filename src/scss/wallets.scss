@@ -96,7 +96,15 @@
     }
 
     .button {
-        width: 90%;
+        @include xl {
+            width: 90%;
+        }
+        @include lg {
+            width: 90%;
+        }
+        @include md {
+            width: 90%;
+        }
     }
 
     input {
