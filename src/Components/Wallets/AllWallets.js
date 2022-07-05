@@ -80,7 +80,7 @@ function AllWallets({ myWalletAddress }) {
         ? "Loading"
         : dataWallet.map((walletItem) => {
             return (
-              <div className="allWallets" key={walletItem.id}>
+              <div className="singleWallet" key={walletItem.id}>
                 <SingleWallet data={walletItem} />
               </div>
             );
