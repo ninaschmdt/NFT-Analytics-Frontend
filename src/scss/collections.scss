@@ -61,11 +61,9 @@
 }
 
 .singleCollectionContainer {
-    
     @include component-row();
     border-top: solid 1px $lightgrey;
     gap: 16px;
-
 
 }
 

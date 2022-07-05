@@ -4,7 +4,7 @@ import SingleTransaction from "./MultipleTransactions";
 import TopLabel from "./TopLabel";
 import AddWallet from "./AddWallet";
 import axios from "axios";
-import { doc, onSnapshot } from "firebase/firestore";
+import { collection, doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../utils/firebaseSetup";
 import MultipleTransactions from "./MultipleTransactions";
