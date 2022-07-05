@@ -51,6 +51,12 @@
 
 }
 
+.singleCollectionCollectionName {
+    text-indent: 16px;
+    width: 60%;
+
+}
+
 .singleCollectionContainerWithLink {
     a:link {
         text-decoration: none;
@@ -85,11 +91,14 @@
 .collectionSupply {
     color: $darkgrey;
     font-weight: 600;
+
 }
 
 .singleCollectionImageNameSupply {
     @include component-row();
     justify-content: flex-start;
+    padding-top: 5px;
+
 }
 
 .singleCollectionSales {

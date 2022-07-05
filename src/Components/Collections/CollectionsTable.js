@@ -46,7 +46,7 @@ const CollectionsTable = () => {
         <TopLabel />
       </div>
       <div className='tableSubHeader'>
-        <div className='singleCollectionName'>Collection</div>
+        <div className='singleCollectionCollectionName'>Collection</div>
         <div className='singleCollectionSales'>Sales Floor</div>
         <div className='singleCollectionSales'>Sales per Hour</div>
       </div>
