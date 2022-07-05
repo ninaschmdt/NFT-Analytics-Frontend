@@ -40,7 +40,7 @@ const SalesFloor = ({ floor, address, prevDataCollection }) => {
               </svg>
 
         }
-        <span style={{ color: change === 1 ? 'green' : change === 2 ? 'red' : 'black' }}>{change}%</span>
+        <span className='zero' style={{ color: change === 1 ? 'green' : change === 2 ? 'red' : 'black' }}>{change}%</span>
       </div>
     </div>
   )
