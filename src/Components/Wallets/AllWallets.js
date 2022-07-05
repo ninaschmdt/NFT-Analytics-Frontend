@@ -30,8 +30,9 @@ function AllWallets({ myWalletAddress, clearWallets }) {
   const [dataTransactions, setDataTransactions] = useState([]);
 
   useEffect(() => {
-    const unsub = onSnapshot(doc(db, "users", myWalletAddress), (doc) =>
-      setTrackedWallets(doc.data().wallets)
+    const unsub = onSnapshot(
+      doc(db, "0x391d69A9113dB3Eb1B8AAb6DB01bf602a9bfE8e1"),
+      (doc) => setTrackedWallets(doc.data().wallets)
     );
     return () => unsub();
   }, []);
