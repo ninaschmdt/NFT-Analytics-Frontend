@@ -1,5 +1,6 @@
 import Web3 from "web3/dist/web3.min.js";
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
 import { getAuth, signInWithCustomToken, signOut } from "firebase/auth";
 import axios from "axios";
 import mobileCheck from "./Components/Header/helpers/mobileCheck";
@@ -11,6 +12,7 @@ import "./scss/appcontainer.scss";
 import "./scss/collections.scss";
 import "./scss/wallets.scss";
 import app from "./utils/firebaseSetup";
+import "react-toastify/dist/ReactToastify.css";
 
 const auth = getAuth(app);
 
@@ -19,6 +21,7 @@ const App = () => {
   const [address, setAddress] = useState("");
   const [myWalletAddress, setMyWalletAddress] = useState("");
   const [clearWallets, setClearWallets] = useState(true);
+  const [dataWallet, setDataWallet] = useState([]);
 
   const onPressConnect = async () => {
     setLoading(true);
@@ -88,10 +91,13 @@ const App = () => {
     setAddress("");
     signOut(auth);
     setClearWallets(true);
+    setDataWallet([]);
+    setMyWalletAddress("");
   };
 
   return (
     <div className="App">
+      <ToastContainer />
       <Header
         onPressConnect={onPressConnect}
         onPressLogout={onPressLogout}
@@ -103,6 +109,8 @@ const App = () => {
         <Wallets
           myWalletAddress={myWalletAddress}
           clearWallets={clearWallets}
+          setDataWallet={setDataWallet}
+          dataWallet={dataWallet}
           setClearWallets={setClearWallets}
         />
       </div>

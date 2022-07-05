@@ -10,35 +10,32 @@ import { useEffect, useState } from "react";
 import { db } from "../../utils/firebaseSetup";
 import MultipleTransactions from "./MultipleTransactions";
 
-/*const AllWallets = () => {
-
-  const [dataWallet, setDataWallet] = useState([]);
-
-  //This is the placeholder code from Ruslan
-  useEffect(() => {
-    axios('https://jsonplaceholder.typicode.com/users')
-      .then(res => setDataWallet(res.data.slice(0, 3)))
-      .catch(err => console.log(err))
-  }, []);
-
-  console.log('data wallet', dataWallet)*/
-
-function AllWallets({ myWalletAddress, clearWallets }) {
+const AllWallets = ({
+  myWalletAddress,
+  clearWallets,
+  dataWallet,
+  setDataWallet,
+}) => {
   const [userInput, setUserInput] = useState("");
   const [trackedWallets, setTrackedWallets] = useState([]);
-  const [dataWallet, setDataWallet] = useState([]);
+
   const [loading, setLoading] = useState(false);
   const [dataTransactions, setDataTransactions] = useState([]);
 
-  console.log("MY WALLET ADDRESS", myWalletAddress);
-
   useEffect(() => {
-    const unsub = onSnapshot(
-      doc(db, "0x391d69A9113dB3Eb1B8AAb6DB01bf602a9bfE8e1"),
-      (doc) => setTrackedWallets(doc.data().wallets)
-    );
-    return () => unsub();
-  }, []);
+    const getTrackedWallets = () => {
+      try {
+        const unsub = onSnapshot(doc(db, "users", myWalletAddress), (doc) => {
+          console.log(doc.data().wallets);
+          setTrackedWallets(doc.data().wallets);
+        });
+        return () => unsub();
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    myWalletAddress && getTrackedWallets();
+  }, [myWalletAddress]);
 
   useEffect(() => {
     try {
@@ -61,20 +58,6 @@ function AllWallets({ myWalletAddress, clearWallets }) {
     }
   }, [trackedWallets]);
 
-  // Thois coudl potetialy handle the selective wallet fetching,
-  // or fetch all and use find method to get the one that we need
-
-  // const search = () => {
-  //   //console.log(userInput);
-  //   fetch("" + userInput)
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       setDataTransactions(data);
-  //     });
-  // };
-
   return (
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
@@ -93,6 +76,6 @@ function AllWallets({ myWalletAddress, clearWallets }) {
       <AddWallet myWalletAddress={myWalletAddress} />
     </div>
   );
-}
+};
 
 export default AllWallets;
