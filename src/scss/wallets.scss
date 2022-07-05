@@ -79,6 +79,14 @@
     }
 }
 
+.LoginToSee {
+    text-align: center;
+    font-weight: 600;
+    color: $red;
+    background-color: $white;
+    border-top: solid 0.5px $red;
+}
+
 .addWallet {
     border-top: solid 1px $lightgrey;
     display: block;
