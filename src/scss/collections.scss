@@ -115,15 +115,33 @@
 
 .zero {
     font-weight: normal;
+    color: $darkgrey;
+
+}
+
+.decrease {
+    font-weight: normal;
+    color: $red;
+
+}
+
+.increase {
+    font-weight: normal;
+    color: green;
+
 }
 
 .itRaised{
     font-weight: normal;
+    color: $darkgrey;
+
 }
 
 .itWentDown{
     font-weight: normal;
+
 }
+
 
 .icytwitter {
     display: flex;
