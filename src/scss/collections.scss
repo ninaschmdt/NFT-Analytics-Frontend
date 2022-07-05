@@ -51,13 +51,20 @@
 
 }
 
-.singleCollection {
-    width: 60%;
-    text-indent: 1em;
-}
-
-.singleCollectionSales {
-    width: 20%;
+.singleCollectionContainerWithLink {
+    a:link {
+        text-decoration: none;
+        color: $black;
+        font-weight: 700;
+      }
+      a:visited {
+        text-decoration: none;
+        color: $black;
+        font-weight: 700;
+      }
+      a:hover {
+        text-decoration: none;
+      }
 }
 
 .singleCollectionContainer {
@@ -71,10 +78,22 @@
     @include hover();
 }
 
-.singleCollectionImageNameSupply {
+.singleCollectionName {
     width: 60%;
+}
+
+.collectionSupply {
+    color: $darkgrey;
+    font-weight: 600;
+}
+
+.singleCollectionImageNameSupply {
     @include component-row();
     justify-content: flex-start;
+}
+
+.singleCollectionSales {
+    width: 20%;
 }
 
 .collectionImage {

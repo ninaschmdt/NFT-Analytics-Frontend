@@ -7,8 +7,7 @@ function SingleCollection({ data }) {
   console.log('THIS IS THE DATA', data)
 
   return (
-    <div>
-      <a href={`https://opensea.io/collection/${data.node.unsafeOpenseaSlug}`}  target='_blank'>
+   
           <div className='singleCollectionImageNameSupply'>
             <CollectionImage image={data.node.unsafeOpenseaImageUrl} />
             <div className='singleCollectionNameSupply'>
@@ -20,8 +19,6 @@ function SingleCollection({ data }) {
               </div>
             </div>
           </div>
-      </a>
-    </div>
   )
 }
 
