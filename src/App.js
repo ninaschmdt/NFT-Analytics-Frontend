@@ -97,6 +97,7 @@ const App = () => {
   };
 
   return (
+    <div>
     <div className="App">
       <ToastContainer />
       <Header
@@ -115,7 +116,8 @@ const App = () => {
           setClearWallets={setClearWallets}
         />
       </div>
-      <Footer />
+    </div>
+    <Footer />
     </div>
   );
 };
