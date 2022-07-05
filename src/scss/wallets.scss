@@ -14,10 +14,11 @@
     width: 90%;
 }
 
+.button-secondary:active {
+    background-color: $lightgrey;
+}
+
 .allWallets {
-    box-shadow: 0px 2px 8px rgba(59, 59, 62, 0.08);
-
-
     @include xl {
         @include wrappers;
         width: 34%;
@@ -95,14 +96,12 @@
     }
 }
 
-.singleWallet {
-    @include component-column();
-    border-top: solid 1px $lightgrey;
-}
 
 .singleWalletImageNameAddress {
     @include component-row();
-    justify-content: flex-start
+    justify-content: flex-start;
+    border-top: solid 1px $lightgrey;
+
 }
 
 .walletImage {
@@ -111,9 +110,8 @@
 }
 
 .multipleTransactions {
-    @include component-row();
     border-top: solid 1px $lightgrey;
-    width: 100%
+
 }
 
 .multipleTransactions:hover {
@@ -122,13 +120,18 @@
 
 .walletNameTop {
     @include component-row;
-    margin: 0 16px 0 16px;
+    margin: 16px;
     font-weight: bold;
 }
 
 .collectionLinkDate {
     @include component-row;
     margin: 0 16px 16px 16px;
+}
+
+.singleWallet {
+    @include component-column();
+    width: 100%;
 }
 
 .bloodyLink {

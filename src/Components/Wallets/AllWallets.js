@@ -65,7 +65,7 @@ const AllWallets = ({
         ? "Log in to see your wallets"
         : dataWallet.map((walletItem) => {
             return (
-              <div className="allWallets" key={walletItem.id}>
+              <div className="singleWallet" key={walletItem.id}>
                 <SingleWallet data={walletItem} />
               </div>
             );
