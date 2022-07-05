@@ -9,10 +9,12 @@ import fetchData, { trendingCollections } from '../Utils/CollectionFetch'
 import Loading from '../Images/Loading'
 
 
-const CollectionsTable = () => {
+const CollectionsTable = ({ func }) => {
   const [dataCollection, setDataCollection] = useState([]);
   const [prevDataCollection, setPrevDataCollection] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  func = dataCollection;
 
   useEffect(() => {
     const getData = (async () => {
@@ -38,7 +40,7 @@ const CollectionsTable = () => {
 
   }, [])
 
-  console.log('THIS IS THE DATA COLLECTION', dataCollection)
+  // console.log('THIS IS THE DATA COLLECTION', dataCollection)
   return (
     <div className='collectionsTable'>
       <div className='tableHeader'>
@@ -51,6 +53,7 @@ const CollectionsTable = () => {
         <div className='singleCollectionSales'>Sales per Hour</div>
       </div>
       {dataCollection.map(collectionItem => {
+        console.log('inside mapping', collectionItem)
         return (
           <div className="singleCollectionContainer" key={collectionItem.node.address}>
             <SingleCollection data={collectionItem} />
@@ -75,3 +78,8 @@ const CollectionsTable = () => {
 }
 
 export default CollectionsTable
+
+
+//In collections table we need dataCollection 
+
+//We then wan t to compare this to 

@@ -1,7 +1,7 @@
 import React from 'react'
 const CollectionImage = ({ image }) => {
 
-  console.log('THIS IS SPARTA', image)
+  // console.log('THIS IS SPARTA', image)
 
   const fallBack = './Images/robots_fallback.png'
 

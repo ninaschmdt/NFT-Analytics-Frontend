@@ -24,6 +24,10 @@ const App = () => {
   const [clearWallets, setClearWallets] = useState(true);
   const [dataWallet, setDataWallet] = useState([]);
 
+  const pull_data = (data) => {
+    console.log('NOTICE ME',data); // LOGS DATA FROM CHILD (My name is Dean Winchester... &)
+  }
+
   const onPressConnect = async () => {
     setLoading(true);
 
@@ -107,7 +111,7 @@ const App = () => {
         address={address}
       />
       <div className="content">
-        <CollectionsTable />
+        <CollectionsTable func={pull_data} />
         <Wallets
           myWalletAddress={myWalletAddress}
           clearWallets={clearWallets}

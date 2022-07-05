@@ -9,8 +9,10 @@ import SalesFloor from '../Collections/SalesFloor'
 
 const MultipleTransactions = ({ transactionName, etherscan, date, tokenName, contractAddress }) => {
 
-  console.log('etehrscan', typeof etherscan)
-  console.log('date', date)
+  // console.log('etehrscan', typeof etherscan)
+  // console.log('date', date)
+
+  console.log('HOWDY', transactionName)
 
   // let OtherDate = new Date(date * 1000)
   // let year = a.getFullYear();
@@ -57,3 +59,15 @@ export default MultipleTransactions
 
 // -Create a component for a single wallet. We pass down the 5 "multiple transactions" to this component. 
 // -In this component, we render the wallet name and the 5 "multiple transactions".
+
+
+
+
+
+
+
+
+
+
+
+// In here I need to get dataCollection from CollectionTable.js AND transactionName (which is already here)
