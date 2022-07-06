@@ -63,7 +63,7 @@ const AllWallets = ({
       <h1>Tracked Wallets</h1>
 
       {clearWallets
-        ? "Log in to see your wallets"
+        ? <div className='LoginToSee'>Connect your wallet to track wallets</div>
         : dataWallet.map((walletItem) => {
             return (
               <div className="singleWallet" key={walletItem.id}>
