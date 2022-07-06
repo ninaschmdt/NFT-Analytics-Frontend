@@ -7,23 +7,23 @@ import SingleCollection from '../Collections/SingleCollection'
 import Sales from '../Collections/Sales'
 import SalesFloor from '../Collections/SalesFloor'
 
-const MultipleTransactions = ({ transactionName, etherscan, date, tokenName, contractAddress }) => {
+const MultipleTransactions = ({ transactionName, etherscan, date, tokenName, contractAddress, dataCollection }) => {
 
-  console.log('etehrscan', typeof etherscan)
-  console.log('date', date)
+  const [address, setAddress] = useState([])
 
-  // let OtherDate = new Date(date * 1000)
-  // let year = a.getFullYear();
-  // let month = months[a.getMonth()];
-  // let hours = OtherDate.getHours();
-  // let minutes = '0' + OtherDate.getMinutes();
-  // let seconds = '0' + OtherDate.getSeconds();
+  useEffect(() => {
+    setAddress(dataCollection?.map(oneCollection => (
+      oneCollection.node.address
+   )))
+  }, [])
 
-  // let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-  // console.log('formattedTime', formattedTime)
+  
+
+//   console.log('transaction name: ',transactionName, 'data collection: ', dataCollection?.map(oneCollection => (
+//     oneCollection.node.address
+//  )))
 
   let newDate = new Date(date * 1000).toISOString().slice(0, 19).replace('T', ' ');
-  console.log('newDate', newDate)
 
   return (
       <div className='multipleTransactions'>
@@ -33,7 +33,7 @@ const MultipleTransactions = ({ transactionName, etherscan, date, tokenName, con
               <br></br>
               {/* Contract address for top 10: {transactionName} */}
             <div className='top'>
-              <TopLabel />
+              {address.includes(transactionName) ? <TopLabel /> : 'NEIN'}
             </div>
           </div>
           <div className='collectionLinkDate'>
@@ -57,3 +57,11 @@ export default MultipleTransactions
 
 // -Create a component for a single wallet. We pass down the 5 "multiple transactions" to this component. 
 // -In this component, we render the wallet name and the 5 "multiple transactions".
+
+
+
+
+
+
+
+// In here I need to get dataCollection from CollectionTable.js AND transactionName (which is already here)

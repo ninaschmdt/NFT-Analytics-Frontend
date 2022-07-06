@@ -4,7 +4,7 @@ import CollectionImage from './CollectionImage'
 import CollectionSupply from './CollectionSupply'
 
 function SingleCollection({ data }) {
-  console.log('THIS IS THE DATA', data)
+  // console.log('THIS IS THE DATA', data)
 
   return (
     <div>
