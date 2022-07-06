@@ -6,6 +6,8 @@ import { db } from "../../utils/firebaseSetup";
 
 const SingleWallet = ({ data, dataCollection }) => {
   const [loading, setLoading] = useState(false);
+  const [avatar, setAvatar] = useState([]);
+  const avatarStatic = 'https://nypost.com/wp-content/uploads/sites/2/2022/03/emotion-robot.gif?w=744';
 
   // console.log('DATAA', data.walletID)
 
@@ -19,9 +21,24 @@ const SingleWallet = ({ data, dataCollection }) => {
   return (
     <div className="singleWallet">
       <div className="singleWalletImageNameAddress">
-        <div className="walletImage"></div>
+        <div className="walletImage">
+          <img src={avatarStatic}/> 
+        </div>
+
         <div className="singleWalletNameAddress">
-          <div className="walletName">{/* {transactionItem.to} */}</div>
+          <div className="walletName">
+            {data.transactions.map(walletName => {
+              return(
+                walletName.contractAddress.slice(0, 2)
+              )
+            })} 
+            ...
+            {data.transactions.map(walletName => {
+              return(
+                walletName.contractAddress.slice(-2)
+              )
+            })} 
+            </div>
         </div>
       </div>
       <div>

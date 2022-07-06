@@ -99,9 +99,11 @@
         @include xl {
             width: 90%;
         }
+
         @include lg {
             width: 90%;
         }
+
         @include md {
             width: 90%;
         }
@@ -121,8 +123,12 @@
 }
 
 .walletImage {
-    @include img();
-    border-radius: 50px;
+    img {
+        @include img();
+        border-radius: 50px;
+        max-width: 30px;
+        object-fit: cover;
+    }
 }
 
 .multipleTransactions {
@@ -138,6 +144,10 @@
     @include component-row;
     margin: 16px;
     font-weight: bold;
+}
+
+.walletName {
+    color: $darkgrey;
 }
 
 .collectionLinkDate {
