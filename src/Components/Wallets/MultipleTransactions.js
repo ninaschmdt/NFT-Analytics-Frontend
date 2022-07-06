@@ -33,7 +33,7 @@ const MultipleTransactions = ({ transactionName, etherscan, date, tokenName, con
               <br></br>
               {/* Contract address for top 10: {transactionName} */}
             <div className='top'>
-              {address.includes(transactionName) ? <TopLabel /> : 'NEIN'}
+              {address.includes(transactionName) ? <TopLabel /> : ""}
             </div>
           </div>
           <div className='collectionLinkDate'>
