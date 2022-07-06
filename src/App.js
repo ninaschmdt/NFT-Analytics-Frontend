@@ -14,8 +14,6 @@ import "./scss/wallets.scss";
 import app from "./utils/firebaseSetup";
 import Footer from "./Components/Footer/Footer";
 import "react-toastify/dist/ReactToastify.css";
-import { createAvatar } from '@dicebear/avatars';
-import * as style from '@dicebear/avatars-bottts-sprites';
 
 const auth = getAuth(app);
 
