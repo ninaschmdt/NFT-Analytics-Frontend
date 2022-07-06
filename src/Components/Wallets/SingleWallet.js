@@ -9,25 +9,29 @@ import axios from "axios";
 const SingleWallet = ({ data, dataCollection }) => {
   const [loading, setLoading] = useState(false);
   const [avatar, setAvatar] = useState([]);
-
-  useEffect(() => {
-    axios('https://avatars.dicebear.com/api/:sprites/:seed.svg')
-      .then(res => setAvatar(res.data))
-      .catch(err => console.log(err))
-  }, []);
-
-  let svg = createAvatar(style, {
-    seed: 'custom-seed'
-  });
+  const avatarStatic = 'https://nypost.com/wp-content/uploads/sites/2/2022/03/emotion-robot.gif?w=744';
 
   return (
     <div className="singleWallet">
       <div className="singleWalletImageNameAddress">
         <div className="walletImage">
-        {svg}
+          <img src={avatarStatic}/> 
         </div>
+
         <div className="singleWalletNameAddress">
-          <div className="walletName">{/* {transactionItem.to} */}</div>
+          <div className="walletName">
+            {data.transactions.map(walletName => {
+              return(
+                walletName.contractAddress.slice(0, 2)
+              )
+            })} 
+            ...
+            {data.transactions.map(walletName => {
+              return(
+                walletName.contractAddress.slice(-2)
+              )
+            })} 
+            </div>
         </div>
       </div>
       <div>
