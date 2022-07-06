@@ -50,8 +50,7 @@ const SingleWallet = ({ data, dataCollection, myWalletAddress }) => {
         ? "Loading"
         : data?.transactions?.slice(-5).map((transactionItem) => {
             return (
-              <div key={transactionItem.id}>
-                <MultipleTransactions
+                <MultipleTransactions key={transactionItem.id}
                   dataCollection={dataCollection}
                   transactionName={transactionItem.contractAddress}
                   etherscan={transactionItem.hash}
@@ -59,7 +58,6 @@ const SingleWallet = ({ data, dataCollection, myWalletAddress }) => {
                   tokenName={transactionItem.tokenName}
                   contractAddress={transactionItem.contractAddress}
                 />
-              </div>
             );
           })}
     </div>
