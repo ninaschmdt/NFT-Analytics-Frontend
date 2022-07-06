@@ -13,11 +13,11 @@ const Sales = ({ address, totalSales, prevDataCollection }) => {
     if (previousData) {
 
       if (totalSales > previousData.node.stats.totalSales) {
-        setItRaised(1)
-        return setChange((100 - ((previousData.node.stats.totalSales * 100) / totalSales)).toFixed(2))   
+        setItRaised('increase')
+        return setChange((100 - ((previousData.node.stats.totalSales * 100) / totalSales)).toFixed(2))
       }
       if (totalSales < previousData.node.stats.totalSales) {
-        setItRaised(2)
+        setItRaised('decrease')
         return setChange((100 - ((totalSales * 100) / previousData.node.stats.totalSales)).toFixed(2))
       }
     }
@@ -31,7 +31,7 @@ const Sales = ({ address, totalSales, prevDataCollection }) => {
         {
           itRaised === 0 ?
             '' :
-            itRaised === 1 ? <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            itRaised === 'increase' ? <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4.6665 11.3333L11.3332 4.66663" stroke="#00A010" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
               <path d="M4.6665 4.66663H11.3332V11.3333" stroke="#00A010" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
             </svg> :
@@ -41,8 +41,9 @@ const Sales = ({ address, totalSales, prevDataCollection }) => {
               </svg>
 
         }
-        <span className='zero' style={{ color: change === 1 ? 'green' : change === 2 ? 'red' : 'black' }}>{change}%</span>
-      </div>
+        <span className={itRaised ? itRaised : 'zero'}
+        // style={{ color: change === 1 ? 'green' : change === 2 ? 'red' : 'black' }}
+        >{change}%</span>      </div>
     </div>
   )
 }

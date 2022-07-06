@@ -1,5 +1,5 @@
 import React from 'react'
-import SingleCollection from './SingleCollection'
+import SingleCollectionName from './SingleCollection'
 import Sales from './Sales'
 import SalesFloor from './SalesFloor'
 import TopLabel from '../Wallets/TopLabel'
@@ -48,20 +48,26 @@ const CollectionsTable = ({ func }) => {
         <TopLabel />
       </div>
       <div className='tableSubHeader'>
-        <div className='singleCollection'>Collection</div>
+        <div className='singleCollectionCollectionName'>Collection</div>
         <div className='singleCollectionSales'>Sales Floor</div>
         <div className='singleCollectionSales'>Sales per Hour</div>
       </div>
       {dataCollection.map(collectionItem => {
         return (
-          <div className="singleCollectionContainer" key={collectionItem.node.address}>
-            <SingleCollection data={collectionItem} />
-            <div className='singleCollectionSales'>
-              <SalesFloor address={collectionItem.node.address} floor={collectionItem.node.stats.floor} prevDataCollection={prevDataCollection} />
+          <div className='singleCollectionContainerWithLink'> 
+          <a href={`https://opensea.io/collection/${collectionItem.node.unsafeOpenseaSlug}`} target='_blank'>
+            <div className='singleCollectionContainer'>
+              <div className="singleCollectionName" key={collectionItem.node.address}>
+                <SingleCollectionName data={collectionItem} />
+              </div>
+              <div className='singleCollectionSales'>
+                <SalesFloor address={collectionItem.node.address} floor={collectionItem.node.stats.floor} prevDataCollection={prevDataCollection} />
+              </div>
+              <div className='singleCollectionSales'>
+                <Sales address={collectionItem.node.address} totalSales={collectionItem.node.stats.totalSales} prevDataCollection={prevDataCollection} />
+              </div>
             </div>
-            <div className='singleCollectionSales'>
-              <Sales address={collectionItem.node.address} totalSales={collectionItem.node.stats.totalSales} prevDataCollection={prevDataCollection} />
-            </div>
+          </a>
           </div>
         )
       })

@@ -51,13 +51,26 @@
 
 }
 
-.singleCollection {
+.singleCollectionCollectionName {
+    text-indent: 16px;
     width: 60%;
-    text-indent: 1em;
+
 }
 
-.singleCollectionSales {
-    width: 20%;
+.singleCollectionContainerWithLink {
+    a:link {
+        text-decoration: none;
+        color: $black;
+        font-weight: 700;
+      }
+      a:visited {
+        text-decoration: none;
+        color: $black;
+        font-weight: 700;
+      }
+      a:hover {
+        text-decoration: none;
+      }
 }
 
 .singleCollectionContainer {
@@ -71,10 +84,25 @@
     @include hover();
 }
 
-.singleCollectionImageNameSupply {
+.singleCollectionName {
     width: 60%;
+}
+
+.collectionSupply {
+    color: $darkgrey;
+    font-weight: 600;
+
+}
+
+.singleCollectionImageNameSupply {
     @include component-row();
     justify-content: flex-start;
+    padding-top: 6px;
+
+}
+
+.singleCollectionSales {
+    width: 20%;
 }
 
 .collectionImage {
@@ -87,15 +115,33 @@
 
 .zero {
     font-weight: normal;
+    color: $darkgrey;
+
+}
+
+.decrease {
+    font-weight: normal;
+    color: $red;
+
+}
+
+.increase {
+    font-weight: normal;
+    color: green;
+
 }
 
 .itRaised{
     font-weight: normal;
+    color: $darkgrey;
+
 }
 
 .itWentDown{
     font-weight: normal;
+
 }
+
 
 .icytwitter {
     display: flex;

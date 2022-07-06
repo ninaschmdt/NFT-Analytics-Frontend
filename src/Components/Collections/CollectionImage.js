@@ -20,9 +20,9 @@ const CollectionImage = ({ image }) => {
   }
 
   return (
-    <div>
+    <>
     {renderImage()}
-    </div>
+    </>
   )
 }
 
