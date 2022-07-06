@@ -9,7 +9,7 @@ const SingleWallet = ({ data, dataCollection }) => {
   const [avatar, setAvatar] = useState([]);
   const avatarStatic = 'https://nypost.com/wp-content/uploads/sites/2/2022/03/emotion-robot.gif?w=744';
 
-  // console.log('DATAA', data.walletID)
+   console.log('DATAA', data)
 
   // const handleRemove = () => {
   //   const userRef = doc(db, "users", data.walletID);
@@ -27,17 +27,10 @@ const SingleWallet = ({ data, dataCollection }) => {
 
         <div className="singleWalletNameAddress">
           <div className="walletName">
-            {data.transactions.map(walletName => {
-              return(
-                walletName.contractAddress.slice(0, 2)
-              )
-            })} 
+            {data.walletID.slice(0,5)} 
             ...
-            {data.transactions.map(walletName => {
-              return(
-                walletName.contractAddress.slice(-2)
-              )
-            })} 
+            {data.walletID.slice(-5)} 
+
             </div>
         </div>
       </div>
