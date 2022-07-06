@@ -35,7 +35,7 @@ const App = () => {
     setLoading(true);
 
     try {
-      const yourWebUrl = "https://verdant-stardust-17d739.netlify.app/"; // Replace with your domain
+      const yourWebUrl = "https://verdant-stardust-17d739.netlify.app"; // Replace with your domain
       const deepLink = `https://metamask.app.link/dapp/${yourWebUrl}`;
       const downloadMetamaskUrl = "https://metamask.io/download.html";
 
