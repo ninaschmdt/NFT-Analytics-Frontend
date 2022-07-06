@@ -23,9 +23,10 @@ const App = () => {
   const [myWalletAddress, setMyWalletAddress] = useState("");
   const [clearWallets, setClearWallets] = useState(true);
   const [dataWallet, setDataWallet] = useState([]);
+  const [dataCollection, setDataCollection] = useState([])
 
   const pull_data = (data) => {
-    console.log('NOTICE ME',data); // LOGS DATA FROM CHILD (My name is Dean Winchester... &)
+    setDataCollection(data);
   }
 
   const onPressConnect = async () => {
@@ -63,8 +64,6 @@ const App = () => {
     const baseUrl = "https://frozen-dusk-75651.herokuapp.com";
     const response = await axios.get(`${baseUrl}/message?address=${address}`);
     const messageToSign = response?.data?.messageToSign;
-
-    console.log("RESPONSE HEREEEEEE!!!!!", messageToSign);
 
     // turn messageToSign into an array
     const walletAddress = messageToSign.split("").splice(16, 42).join("");
@@ -113,6 +112,7 @@ const App = () => {
       <div className="content">
         <CollectionsTable func={pull_data} />
         <Wallets
+          dataCollection={dataCollection}
           myWalletAddress={myWalletAddress}
           clearWallets={clearWallets}
           setDataWallet={setDataWallet}

@@ -2,9 +2,9 @@ import React from "react";
 import MultipleTransactions from "./MultipleTransactions";
 import { useState } from "react";
 
-const SingleWallet = ({ data }) => {
+const SingleWallet = ({ data, dataCollection }) => {
   const [loading, setLoading] = useState(false);
-  // console.log("DATA is here for single wallet", data)
+
   return (
     <div className="singleWallet">
       <div className="singleWalletImageNameAddress">
@@ -18,10 +18,11 @@ const SingleWallet = ({ data }) => {
       </div>
       {loading
         ? "Loading"
-        : data.transactions.slice(0, 5).map((transactionItem) => {
+        : data.transactions.slice(-5).map((transactionItem) => {
             return (
               <div key={transactionItem.id}>
                 <MultipleTransactions
+                  dataCollection={dataCollection}
                   transactionName={transactionItem.contractAddress}
                   etherscan={transactionItem.hash}
                   date={transactionItem.timeStamp}

@@ -3,7 +3,6 @@ import Logo from "./Logo";
 import ConnectWalletButton from "./ConnectWalletButton";
 
 const Header = ({ onPressLogout, onPressConnect, loading, address }) => {
-  console.log(onPressConnect);
   return (
     <div className="header">
 

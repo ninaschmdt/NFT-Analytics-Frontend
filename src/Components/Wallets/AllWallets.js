@@ -14,6 +14,7 @@ const AllWallets = ({
   clearWallets,
   dataWallet,
   setDataWallet,
+  dataCollection
 }) => {
   const [userInput, setUserInput] = useState("");
   const [trackedWallets, setTrackedWallets] = useState([]);
@@ -25,7 +26,7 @@ const AllWallets = ({
     const getTrackedWallets = () => {
       try {
         const unsub = onSnapshot(doc(db, "users", myWalletAddress), (doc) => {
-          console.log(doc.data().wallets);
+          // console.log(doc.data().wallets);
           setTrackedWallets(doc.data().wallets);
         });
         return () => unsub();
@@ -66,7 +67,7 @@ const AllWallets = ({
         : dataWallet.map((walletItem) => {
             return (
               <div className="singleWallet" key={walletItem.id}>
-                <SingleWallet data={walletItem} />
+                <SingleWallet data={walletItem} dataCollection={dataCollection} />
               </div>
             );
           })}

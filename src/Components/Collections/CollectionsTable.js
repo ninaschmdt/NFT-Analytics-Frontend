@@ -13,8 +13,8 @@ const CollectionsTable = ({ func }) => {
   const [dataCollection, setDataCollection] = useState([]);
   const [prevDataCollection, setPrevDataCollection] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  func = dataCollection;
+  
+  func(dataCollection);
 
   useEffect(() => {
     const getData = (async () => {
@@ -53,7 +53,6 @@ const CollectionsTable = ({ func }) => {
         <div className='singleCollectionSales'>Sales per Hour</div>
       </div>
       {dataCollection.map(collectionItem => {
-        console.log('inside mapping', collectionItem)
         return (
           <div className="singleCollectionContainer" key={collectionItem.node.address}>
             <SingleCollection data={collectionItem} />
@@ -82,4 +81,4 @@ export default CollectionsTable
 
 //In collections table we need dataCollection 
 
-//We then wan t to compare this to 
+//We then want to compare this to 
