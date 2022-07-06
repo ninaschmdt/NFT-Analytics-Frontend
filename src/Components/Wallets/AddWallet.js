@@ -33,7 +33,6 @@ const AddWallet = ({ myWalletAddress }) => {
       toast.error(error);
     }
   };
-
   return (
     <div className="addWallet">
       <h3>Track Wallet</h3>

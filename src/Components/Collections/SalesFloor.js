@@ -23,7 +23,7 @@ const SalesFloor = ({ floor, address, prevDataCollection }) => {
     }
   }, [prevDataCollection])
 
-  console.log('our state', itRaised)
+  // console.log('our state', itRaised)
 
   return (
     <div className='sales'>

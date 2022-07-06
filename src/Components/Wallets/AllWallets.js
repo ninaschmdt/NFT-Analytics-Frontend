@@ -40,24 +40,25 @@ const AllWallets = ({
   useEffect(() => {
     try {
       const getWalletsData = async () => {
-        const promisedWallets = trackedWallets.map((wallet) =>
-          axios.get(
+        const wallets = []
+
+        for await (const wallet of trackedWallets) {
+          const { data } = await axios.get(
             `https://api.etherscan.io/api?module=account&action=tokennfttx&address=${wallet}&apikey=${process.env.REACT_APP_ETH_API_KEY}`
           )
-        );
-        const responsesWallet = await Promise.all(promisedWallets);
-        const wallets = responsesWallet.map((response) => ({
-          walletID: response.data.result[0].to,
-          transactions: response.data.result,
-        }));
+          wallets.push({ walletID: wallet, transactions: data.result })
+        }
         setDataWallet(wallets);
       };
+
+
       getWalletsData();
     } catch (error) {
       console.log(error);
     }
   }, [trackedWallets]);
 
+  console.log('DATA WALLET', dataWallet)
   return (
     <div className="allWallets">
       <h1>Tracked Wallets</h1>
@@ -65,12 +66,12 @@ const AllWallets = ({
       {clearWallets
         ? <div className='LoginToSee'>Connect your wallet to track wallets</div>
         : dataWallet.map((walletItem) => {
-            return (
-              <div className="singleWallet" key={walletItem.id}>
-                <SingleWallet data={walletItem} dataCollection={dataCollection} />
-              </div>
-            );
-          })}
+          return (
+            <div className="singleWallet" key={walletItem.id}>
+              <SingleWallet data={walletItem} dataCollection={dataCollection} myWalletAddress={myWalletAddress} />
+            </div>
+          );
+        })}
       {/* <SingleWallet data={dataTransactions} /> */}
 
       <AddWallet myWalletAddress={myWalletAddress} />
