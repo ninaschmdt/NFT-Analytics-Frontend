@@ -14,7 +14,7 @@ const Sales = ({ address, totalSales, prevDataCollection }) => {
 
       if (totalSales > previousData.node.stats.totalSales) {
         setItRaised('increase')
-        return setChange((100 - ((previousData.node.stats.totalSales * 100) / totalSales)).toFixed(2))   
+        return setChange((100 - ((previousData.node.stats.totalSales * 100) / totalSales)).toFixed(2))
       }
       if (totalSales < previousData.node.stats.totalSales) {
         setItRaised('decrease')
@@ -41,8 +41,9 @@ const Sales = ({ address, totalSales, prevDataCollection }) => {
               </svg>
 
         }
-        <span className={itRaised} >{change}%</span>
-      </div>
+        <span className={itRaised ? itRaised : 'zero'}
+        // style={{ color: change === 1 ? 'green' : change === 2 ? 'red' : 'black' }}
+        >{change}%</span>      </div>
     </div>
   )
 }
