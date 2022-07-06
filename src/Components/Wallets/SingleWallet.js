@@ -1,9 +1,20 @@
 import React from "react";
 import MultipleTransactions from "./MultipleTransactions";
 import { useState } from "react";
+import { doc, updateDoc, deleteField } from "firebase/firestore";
+import { db } from "../../utils/firebaseSetup";
 
 const SingleWallet = ({ data, dataCollection }) => {
   const [loading, setLoading] = useState(false);
+
+  // console.log('DATAA', data.walletID)
+
+  // const handleRemove = () => {
+  //   const userRef = doc(db, "users", data.walletID);
+  //   await updateDoc(userRef, {
+  //     wallets: deleteField()
+  //   });
+  // }
 
   return (
     <div className="singleWallet">
@@ -18,7 +29,7 @@ const SingleWallet = ({ data, dataCollection }) => {
       </div>
       {loading
         ? "Loading"
-        : data.transactions.slice(-5).map((transactionItem) => {
+        : data?.transactions?.slice(-5).map((transactionItem) => {
             return (
               <div key={transactionItem.id}>
                 <MultipleTransactions

@@ -6,7 +6,6 @@ import { db } from "../../utils/firebaseSetup";
 
 const AddWallet = ({ myWalletAddress }) => {
   const [wallet, setWallet] = useState("");
-  const [list, setList] = useState([]);
 
   const handleSubmit = async (e) => {
     try {
@@ -27,7 +26,6 @@ const AddWallet = ({ myWalletAddress }) => {
         setWallet("");
         return toast.error("You can only track 3 wallets");
       }
-      console.log("hehe")
       await updateDoc(userRef, { wallets: arrayUnion(wallet) });
       setWallet("");
       toast.success("Added wallet to user");
@@ -52,9 +50,6 @@ const AddWallet = ({ myWalletAddress }) => {
         <br />
         <input type="submit" className="button" value="Add" />
       </form>
-      {list.map((a) => (
-        <div>{a.wallet}</div>
-      ))}
     </div>
   );
 };
