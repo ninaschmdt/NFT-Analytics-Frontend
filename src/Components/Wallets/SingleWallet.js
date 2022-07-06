@@ -21,7 +21,7 @@ const SingleWallet = ({ data, dataCollection, myWalletAddress }) => {
     const userSnap = await getDoc(userRef);
 
     await updateDoc(userRef, {
-      wallets: arrayRemove("0x391d69A9113dB3Eb1B8AAb6DB01bf602a9bfE8e1")
+      wallets: arrayRemove(data.walletID)
     })}
     catch(err) {
       console.log(err)
