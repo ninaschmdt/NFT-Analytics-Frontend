@@ -10,11 +10,6 @@ const SingleWallet = ({ data, dataCollection, myWalletAddress }) => {
   const [avatar, setAvatar] = useState([]);
   const avatarStatic = 'https://nypost.com/wp-content/uploads/sites/2/2022/03/emotion-robot.gif?w=744';
 
-   console.log('DATAA', data.walletID)
-   
-   const theIDUpper = data.walletID.toUpperCase();
-   const theIDLower = data.walletID.toLowerCase()
-
   const handleRemove = async () => {
   try{ 
     const userRef = doc(db, "users", myWalletAddress);
